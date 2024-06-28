@@ -204,16 +204,16 @@ h6 {
 	margin: 0 auto;
 }
 .about-btn {
-	color: #01B5F8;
+	color: #000088;
 	padding: 10px 40px;
-	border: 2px solid #01B5F8;
+	border: 2px solid #000088;
 	border-radius: 7px;
 	margin-top: 30px;
 	display: inline-block;
 	font-size: 18px;
 }
 .about-btn:hover {
-	background:#01B5F8;
+	background:#000088;
 	color:#ffffff;
 	text-decoration:none;
 }
@@ -228,8 +228,25 @@ h6 {
 	font-size: 18px;
 }
 .primary-btn:hover {
-	background:#01B5F8;
+	background:#000088;
 	color:#ffffff;
+	text-decoration:none;
+}
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+.rounded-pill {
+	border-radius: var(--bs-border-radius-pill) !important;
+  }
+.btn-primary {
+	background-color: #000088;
+	border-radius: 50px;
+	display: inline-block;
+  }
+.btn-primary:hover {
+	background:#ffffff;
+	color:#000000;
 	text-decoration:none;
 }
 .video-section {
