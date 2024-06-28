@@ -7,10 +7,10 @@ body {
 	font-size: 14px;
 }
 a {
-	color:#46C4FB;
+	color:#ffffff;
 }
 a:hover {
-	color:#5f0099;
+	color:#ffffff;
 }
 h1, h2, h3 {
 	font-weight: 700;
@@ -40,7 +40,7 @@ h6 {
 	z-index: 1030;
 }
 .navbar .active {
-	color: #01B5F8 !important;
+	color: #000088 !important;
 }
 .navbar .navbar-brand {
 }
@@ -55,7 +55,7 @@ h6 {
 	font-size: 13px;
 }
 .navbar .nav-item a:hover {
-	color: #01B5F8;
+	color: #000088;
 }
 .navbar .nav-link {
 	position: relative;
@@ -832,7 +832,6 @@ input {
 .contact-info {
 	padding: 2rem 2rem 1rem;
 	border-radius: 8px;
-	background: #7a60ff;
 	background: linear-gradient(to left,  #01569E,#01B5F8);
 }
 .contact-item {
