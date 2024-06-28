@@ -55,7 +55,7 @@ h6 {
 	font-size: 13px;
 }
 .navbar .nav-item a:hover {
-	color: #5f0099;
+	color: #01B5F8;
 }
 .navbar .nav-link {
 	position: relative;
@@ -213,6 +213,21 @@ h6 {
 	font-size: 18px;
 }
 .about-btn:hover {
+	background:#01B5F8;
+	color:#ffffff;
+	text-decoration:none;
+}
+.primary-btn {
+	color: #000000;
+	background-color:#ffffff ;
+	padding: 10px 40px;
+	/* border: 2px solid #01B5F8; */
+	border-radius: 7px;
+	margin-top: 30px;
+	display: inline-block;
+	font-size: 18px;
+}
+.primary-btn:hover {
 	background:#01B5F8;
 	color:#ffffff;
 	text-decoration:none;
@@ -916,11 +931,7 @@ h3 {
 .sectioner-header p {
 	font-size: 14px;
 }
-.about-btn {
-	padding: 5px 30px;
-	margin-top: 0px;
-	font-size: 16px;
-}
+
 .single-feature {
 	margin-bottom: 20px;
 	margin-top: 20px;
