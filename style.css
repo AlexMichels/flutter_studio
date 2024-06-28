@@ -904,7 +904,7 @@ input {
 @media all and (max-width:991px) {
 .navbar .navbar-collapse {
 	overflow: auto;
-	background:  rgb(213, 198, 221);
+	background:  linear-gradient(to left, #01569E,#01B5F8);
 	color: #fff !important;
 	text-align: center;
 	padding: 10px 0;
@@ -921,6 +921,7 @@ input {
 	transform: scale(0.75) !important;
 	-webkit-transform: scale(0.75) !important;
 }
+
 .banner-text {
 	padding-right: 0px;
 	margin: 10px 0px 0px;
