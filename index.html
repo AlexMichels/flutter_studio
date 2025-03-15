@@ -49,6 +49,9 @@
     "areaServed": ["Berlin", "München", "Hamburg", "Köln", "Deutschland"]
   }
   </script>
+  <!-- Translation scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/language-switcher.js"></script>
 </head>
 
 <body>
@@ -61,18 +64,17 @@
           class="fas fa-bars"></span> </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="0">Startseite</a> </li>
-
-          <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="2">Dienstleistungen</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="3">Über uns</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="0" data-i18n="nav_home">Startseite</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="2" data-i18n="nav_services">Dienstleistungen</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="3" data-i18n="nav_about">Über uns</a> </li>
           <!-- <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="4">Referenzen</a> </li> -->
-          <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="5">FAQ</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="6">Kontakt</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="5" data-i18n="nav_faq">FAQ</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="6" data-i18n="nav_contact">Kontakt</a> </li>
         </ul>
         <a class="btn btn-primary px-3 mb-2 mb-lg-0" href="#" data-scroll-nav="6" rel="noopener nofollow">
           <span class="d-flex align-items-center">
             <i class="bi-chat-text-fill me-2"></i>
-            <span class="small">&nbsp;TERMIN VEREINBAREN</span>
+            <span class="small" data-i18n="nav_cta">&nbsp;TERMIN VEREINBAREN</span>
           </span>
         </a>
       </div>
@@ -86,19 +88,19 @@
         <div class="row">
           <div class="col-md-8 col-sm-12">
             <div class="banner-text">
-              <h1 class="white">Individuelle App-Entwicklung mit Flutter in Deutschland</h1>
-              <h6 class="white">Maßgeschneiderte Flutter Apps für Web, Android und iOS.</h6>
-              <p class="banner-text white">Wir helfen Ihnen mit Ihrer kompletten individuellen App-Entwicklung. Durch
+              <h1 class="white" data-i18n="banner_title">Individuelle App-Entwicklung mit Flutter in Deutschland</h1>
+              <h6 class="white" data-i18n="banner_subtitle">Maßgeschneiderte Flutter Apps für Web, Android und iOS.</h6>
+              <p class="banner-text white" data-i18n="banner_text1">Wir helfen Ihnen mit Ihrer kompletten individuellen App-Entwicklung. Durch
                 unsere zahlreichen erfolgreichen Entwicklungsprojekte in ganz Deutschland verfügen wir über das nötige
                 Know-how, Ihre Ideen
                 schnell und effizient umzusetzen.</p>
-              <p class="banner-text white"> Wir unterstützen Sie im gesamten Entwicklungsprozess. Vom Design, Coding,
+              <p class="banner-text white" data-i18n="banner_text2"> Wir unterstützen Sie im gesamten Entwicklungsprozess. Vom Design, Coding,
                 Bug-Fixing bis hin zum
                 Support nach der Live-Schaltung. Für eine Projekteinschätzung können Sie gerne unverbindlich einen
                 Termin mit uns buchen.</p>
               <ul>
-                <li><a href="#" data-scroll-nav="6" class="primary-btn">Kontakt</a></li>
-                <li><a href="tel:+4952424129026" class="primary-btn">Anrufen</a></li>
+                <li><a href="#" data-scroll-nav="6" class="primary-btn" data-i18n="banner_contact">Kontakt</a></li>
+                <li><a href="tel:+4952424129026" class="primary-btn" data-i18n="banner_call">Anrufen</a></li>
               </ul>
             </div>
           </div>
@@ -129,9 +131,9 @@
       <div class="row">
         <div class="col-md-12">
           <div class="sectioner-header text-center">
-            <h3>Typischer Entwicklungsablauf</h3>
+            <h3 data-i18n="process_title">Typischer Entwicklungsablauf</h3>
             <span class="line"></span>
-            <p>Wir sind Experten in der Entwicklung von Flutter-Apps und bieten maßgeschneiderte Lösungen für alle Ihre
+            <p data-i18n="process_subtitle">Wir sind Experten in der Entwicklung von Flutter-Apps und bieten maßgeschneiderte Lösungen für alle Ihre
               Anforderungen.</p>
           </div>
           <div class="section-content text-center">
@@ -139,29 +141,29 @@
               <div class="col-md-4">
                 <div class="icon-box">
                   <i class="fa fa-life-ring" aria-hidden="true"></i>
-                  <h5>Agile Projektplanung & Design Planung</h5>
-                  <p>Wir starten mit einer agilen Projektplanung und detaillierten Design-Besprechung, um Ihre
+                  <h5 data-i18n="process_box1_title">Agile Projektplanung & Design Planung</h5>
+                  <p data-i18n="process_box1_text">Wir starten mit einer agilen Projektplanung und detaillierten Design-Besprechung, um Ihre
                     Anforderungen und Visionen zu verstehen.</p>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="icon-box">
                   <i class="fa fa-mobile" aria-hidden="true"></i>
-                  <h5>Entwicklung für iOS, Android & optional Web</h5>
-                  <p>Unsere Entwickler arbeiten an plattformübergreifenden Lösungen für iOS, Android und optional für
+                  <h5 data-i18n="process_box2_title">Entwicklung für iOS, Android & optional Web</h5>
+                  <p data-i18n="process_box2_text">Unsere Entwickler arbeiten an plattformübergreifenden Lösungen für iOS, Android und optional für
                     Web, um eine nahtlose Nutzererfahrung zu gewährleisten.</p>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="icon-box">
                   <i class="fa fa-bolt" aria-hidden="true"></i>
-                  <h5>Release, Bugfixes & Nutzeranalysen</h5>
-                  <p>Nach dem Release kümmern wir uns um Bugfixes und führen umfassende Nutzeranalysen durch, um die App
+                  <h5 data-i18n="process_box3_title">Release, Bugfixes & Nutzeranalysen</h5>
+                  <p data-i18n="process_box3_text">Nach dem Release kümmern wir uns um Bugfixes und führen umfassende Nutzeranalysen durch, um die App
                     kontinuierlich zu verbessern.</p>
                 </div>
               </div>
             </div>
-            <a href="#" class="about-btn">Termin Buchen</a>
+            <a href="#" class="about-btn" data-i18n="process_cta">Termin Buchen</a>
           </div>
         </div>
       </div>
@@ -174,10 +176,8 @@
   <section class="video-section prelative text-center white">
     <div class="section-padding video-overlay">
       <div class="container">
-        <h3>Jetzt Erreichen Sie ein breiteres Publikum mit plattformübergreifenden Anwendungen, die sowohl auf iOS als
+        <h3 data-i18n="video_text">Jetzt Erreichen Sie ein breiteres Publikum mit plattformübergreifenden Anwendungen, die sowohl auf iOS als
           auch auf Android reibungslos funktionieren und dabei eine konsistente Benutzererfahrung bieten.</h3>
-
-
       </div>
     </div>
   </section>
@@ -191,9 +191,9 @@
       <div class="row">
         <div class="col-md-12">
           <div class="sectioner-header text-center">
-            <h3>Flutter hilft, schneller voranzukommen</h3>
+            <h3 data-i18n="features_title">Flutter hilft, schneller voranzukommen</h3>
             <span class="line"></span>
-            <p>Wir freuen uns darauf, mit Ihnen an Ihrem nächsten erfolgreichen mobilen Projekt zu arbeiten. Nehmen Sie
+            <p data-i18n="features_subtitle">Wir freuen uns darauf, mit Ihnen an Ihrem nächsten erfolgreichen mobilen Projekt zu arbeiten. Nehmen Sie
               Kontakt mit uns auf, um ein unverbindliches Angebot zu erhalten oder mehr über unseren Service zu
               erfahren.</p>
           </div>
@@ -202,24 +202,24 @@
               <div class="col-md-4 col-sm-12">
                 <div class="media single-feature text-center">
                   <div class="media-body text-right media-right-margin">
-                    <h5>Schnelle Markteinführung</h5>
-                    <p>Dank der effizienten Entwicklungsprozesse können Apps schneller auf den Markt gebracht werden.
+                    <h5 data-i18n="feature1_title">Schnelle Markteinführung</h5>
+                    <p data-i18n="feature1_text">Dank der effizienten Entwicklungsprozesse können Apps schneller auf den Markt gebracht werden.
                     </p>
                   </div>
                   <div class="media-right icon-border"> <span class="fa fa-bolt" aria-hidden="true"></span> </div>
                 </div>
                 <div class="media single-feature text-center">
                   <div class="media-body text-right media-right-margin">
-                    <h5>Geringer Energieverbrauch</h5>
-                    <p>Unsere Apps sind energieeffizient gestaltet.</p>
+                    <h5 data-i18n="feature2_title">Geringer Energieverbrauch</h5>
+                    <p data-i18n="feature2_text">Unsere Apps sind energieeffizient gestaltet.</p>
                   </div>
                   <div class="media-right icon-border"> <span class="fa fa-battery-full" aria-hidden="true"></span>
                   </div>
                 </div>
                 <div class="media single-feature text-center">
                   <div class="media-body text-right media-right-margin">
-                    <h5>Schnelles Backend mit Firebase</h5>
-                    <p>Firebase bietet eine schnelle, skalierbare und zuverlässige Backend-Lösung. </p>
+                    <h5 data-i18n="feature3_title">Schnelles Backend mit Firebase</h5>
+                    <p data-i18n="feature3_text">Firebase bietet eine schnelle, skalierbare und zuverlässige Backend-Lösung. </p>
                   </div>
                   <div class="media-right icon-border"> <span class="fa fa-wifi" aria-hidden="true"></span> </div>
                 </div>
@@ -240,8 +240,8 @@
                   <div class="media-left icon-border media-right-margin"> <span class="fa fa-check-double"
                       aria-hidden="true"></span> </div>
                   <div class="media-body text-left">
-                    <h5>Riverpod-Architektur</h5>
-                    <p>Mit Riverpod und einem Feature-First-Approach optimieren wir die Leistung Ihrer App und sorgen
+                    <h5 data-i18n="feature4_title">Riverpod-Architektur</h5>
+                    <p data-i18n="feature4_text">Mit Riverpod und einem Feature-First-Approach optimieren wir die Leistung Ihrer App und sorgen
                       für
                       einen leicht wartbaren Code.</p>
                   </div>
@@ -250,16 +250,16 @@
                   <div class="media-left icon-border media-right-margin"> <span class="fa fa-dollar-sign"
                       aria-hidden="true"></span> </div>
                   <div class="media-body text-left">
-                    <h5>Geld sparen</h5>
-                    <p>Flutter hilft, Kosten zu senken, indem nur ein Team für die Entwicklung benötigt wird.</p>
+                    <h5 data-i18n="feature5_title">Geld sparen</h5>
+                    <p data-i18n="feature5_text">Flutter hilft, Kosten zu senken, indem nur ein Team für die Entwicklung benötigt wird.</p>
                   </div>
                 </div>
                 <div class="media single-feature text-center">
                   <div class="media-left icon-border media-right-margin"> <span class="fa fa-hdd"
                       aria-hidden="true"></span> </div>
                   <div class="media-body text-left">
-                    <h5>Hohe Performance</h5>
-                    <p>Flutter-Apps bieten native Performance und flüssige Benutzererlebnisse.</p>
+                    <h5 data-i18n="feature6_title">Hohe Performance</h5>
+                    <p data-i18n="feature6_text">Flutter-Apps bieten native Performance und flüssige Benutzererlebnisse.</p>
                   </div>
                 </div>
               </div>
@@ -276,9 +276,9 @@
       <div class="row">
         <div class="col-md-12">
           <div class="sectioner-header text-center">
-            <h3>Über uns</h3>
+            <h3 data-i18n="about_title">Über uns</h3>
             <span class="line"></span>
-            <p>Mit einem dynamischen Team bestehend aus 4 hochqualifizierten Experten, darunter unser CEO Patrick und
+            <p data-i18n="about_text">Mit einem dynamischen Team bestehend aus 4 hochqualifizierten Experten, darunter unser CEO Patrick und
               CTO & Lead Developer Alex sowie zwei Softwareentwicklern, verfügen wir über mehr als 15 Jahre kombinierte
               Erfahrung.
               <br><br>
@@ -293,7 +293,7 @@
                 <div class="team-detail">
                   <img src="images/alex.jpg" class="img-fluid" alt="Profile picture of Alexander Michels" />
                   <h4>Alexander Michels</h4>
-                  <p>Flutter Lead Developer</p>
+                  <p data-i18n="about_dev">Flutter Lead Developer</p>
                 </div>
               </div>
 
@@ -302,7 +302,7 @@
                   <img src="images/patrick.jpeg" class="img-fluid"
                     alt="Patrick Lutterberg - CEO - Projektkoordinator" />
                   <h4>Patrick Lutterberg</h4>
-                  <p>Projektkoordinator</p>
+                  <p data-i18n="about_coord">Projektkoordinator</p>
                 </div>
               </div>
             </div>
@@ -318,9 +318,9 @@
       <div class="row">
         <div class="col-md-12">
           <div class="sectioner-header text-center white">
-            <h3>Projekt-Erfahrungen</h3>
+            <h3 data-i18n="project_title">Projekt-Erfahrungen</h3>
             <span class="line"></span>
-            <p class="white">Werfen Sie einen Blick auf einige unserer erfolgreich abgeschlossenen Projekte.</p>
+            <p class="white" data-i18n="project_subtitle">Werfen Sie einen Blick auf einige unserer erfolgreich abgeschlossenen Projekte.</p>
           </div>
 
           <div class="section-content">
@@ -331,39 +331,39 @@
                     <div class="test-img"><img src="images/smart_home.jpg" alt="Smart Home Anbieter" width="157"
                         height="157"></div>
                     <div class="test-text">
-                      <span class="title"><span>Smart Home Anbieter</span></span>
-                      Wir haben für einen großen europäischen Smart Home Anbieter mit Hunderttausenden von Kunden eine
+                      <span class="title"><span data-i18n="project1_title">Smart Home Anbieter</span></span>
+                      <span data-i18n="project1_text">Wir haben für einen großen europäischen Smart Home Anbieter mit Hunderttausenden von Kunden eine
                       App mitentwickelt, die die Kontrolle über eine Vielzahl von Smart Home Geräten ermöglicht. Unsere
-                      Arbeit umfasste definition der Architektur CICD und viele andere komplexe Aufgaben.
+                      Arbeit umfasste definition der Architektur CICD und viele andere komplexe Aufgaben.</span>
                     </div>
                   </div>
                   <div class="slider-item">
                     <div class="test-img"><img src="images/medtech.jpg" alt="MedTech Unternehmen" width="157"
                         height="157"></div>
                     <div class="test-text">
-                      <span class="title"><span>MedTech Unternehmen</span></span>
-                      Für ein führendes MedTech-Unternehmen haben wir eine verschreibungspflichtige App entwickelt, die
+                      <span class="title"><span data-i18n="project2_title">MedTech Unternehmen</span></span>
+                      <span data-i18n="project2_text">Für ein führendes MedTech-Unternehmen haben wir eine verschreibungspflichtige App entwickelt, die
                       Patienten nach Kreuzbandrissen oder Meniskusschäden hilft, wieder fit zu werden. Diese App erfüllt
                       höchste Sicherheits- und Qualitätsstandards und kann von jedem Arzt in Deutschland verschrieben
-                      werden.
+                      werden.</span>
                     </div>
                   </div>
                   <div class="slider-item">
                     <div class="test-img"><img src="images/buchhaltung.jpg" alt="Inhouse Buchhaltungs-App" width="157"
                         height="157"></div>
                     <div class="test-text">
-                      <span class="title"><span>Inhouse Buchhaltungs-App</span></span>
-                      Wir haben eine Buchhaltungs-App für kleine Unternehmen entwickelt, die interne Prozesse optimiert
-                      und eine einfache Verwaltung der Finanzen ermöglicht.
+                      <span class="title"><span data-i18n="project3_title">Inhouse Buchhaltungs-App</span></span>
+                      <span data-i18n="project3_text">Wir haben eine Buchhaltungs-App für kleine Unternehmen entwickelt, die interne Prozesse optimiert
+                      und eine einfache Verwaltung der Finanzen ermöglicht.</span>
                     </div>
                   </div>
                   <div class="slider-item">
                     <div class="test-img"><img src="images/notes.jpg" alt="MVP für Start-Up" width="157" height="157">
                     </div>
                     <div class="test-text">
-                      <span class="title"><span>MVP für Start-Up</span></span>
-                      Für ein Start-Up haben wir einen MVP (Minimum Viable Product) entwickelt, der eine
-                      Note-Taking-App umfasst.
+                      <span class="title"><span data-i18n="project4_title">MVP für Start-Up</span></span>
+                      <span data-i18n="project4_text">Für ein Start-Up haben wir einen MVP (Minimum Viable Product) entwickelt, der eine
+                      Note-Taking-App umfasst.</span>
                     </div>
                   </div>
                 </div>
@@ -381,16 +381,16 @@
       <div class="row">
         <div class="col-md-12">
           <div class="sectioner-header text-center">
-            <h3>Häufig gestellte Fragen</h3>
+            <h3 data-i18n="faq_title">Häufig gestellte Fragen</h3>
             <span class="line"></span>
-            <p>Hier finden Sie Antworten auf einige häufig gestellte Fragen zu unseren
+            <p data-i18n="faq_subtitle">Hier finden Sie Antworten auf einige häufig gestellte Fragen zu unseren
               Flutter-Dienstleistungen.</p>
           </div>
           <div class="section-content">
             <div class="row">
               <div class="col-md-6 faq-content">
-                <h4>Was ist Flutter und warum sollte ich es verwenden?</h4>
-                <p>Flutter ist ein Open-Source-Framework von Google zur Entwicklung von
+                <h4 data-i18n="faq1_question">Was ist Flutter und warum sollte ich es verwenden?</h4>
+                <p data-i18n="faq1_answer">Flutter ist ein Open-Source-Framework von Google zur Entwicklung von
                   plattformübergreifenden Apps. Es
                   ermöglicht die Erstellung von Anwendungen für iOS, Android, Web und Desktop mit
                   einer einzigen
@@ -398,33 +398,33 @@
                 </p>
               </div>
               <div class="col-md-6 faq-content">
-                <h4>Welche Vorteile bietet Flutter im Vergleich zu anderen plattformübergreifenden
+                <h4 data-i18n="faq2_question">Welche Vorteile bietet Flutter im Vergleich zu anderen plattformübergreifenden
                   Frameworks?</h4>
-                <p>Flutter bietet eine native Performance, eine reichhaltige Sammlung an
+                <p data-i18n="faq2_answer">Flutter bietet eine native Performance, eine reichhaltige Sammlung an
                   vorgefertigten Widgets und eine
                   schnelle Entwicklungszeit. Es verwendet die Dart-Programmiersprache und ermöglicht
                   Hot Reload, was die
                   Entwicklung und das Debugging beschleunigt.</p>
               </div>
               <div class="col-md-6 faq-content">
-                <h4>Wie lange dauert es, eine Flutter-App zu entwickeln?</h4>
-                <p>Die Entwicklungszeit hängt von der Komplexität der App und den spezifischen
+                <h4 data-i18n="faq3_question">Wie lange dauert es, eine Flutter-App zu entwickeln?</h4>
+                <p data-i18n="faq3_answer">Die Entwicklungszeit hängt von der Komplexität der App und den spezifischen
                   Anforderungen ab.
                   Einfache Apps können in wenigen Wochen entwickelt werden, während komplexere
                   Anwendungen mehrere
                   Monate in Anspruch nehmen können.</p>
               </div>
               <div class="col-md-6 faq-content">
-                <h4>Kann Flutter für Web- und Desktop-Anwendungen verwendet werden?</h4>
-                <p>Ja, Flutter unterstützt die Entwicklung von Web- und Desktop-Anwendungen
+                <h4 data-i18n="faq4_question">Kann Flutter für Web- und Desktop-Anwendungen verwendet werden?</h4>
+                <p data-i18n="faq4_answer">Ja, Flutter unterstützt die Entwicklung von Web- und Desktop-Anwendungen
                   zusätzlich zu mobilen Apps.
                   Dies ermöglicht es Entwicklern, eine konsistente Benutzererfahrung über
                   verschiedene Plattformen
                   hinweg zu bieten.</p>
               </div>
               <div class="col-md-6 faq-content">
-                <h4>Welche Arten von Apps können mit Flutter entwickelt werden?</h4>
-                <p>Mit Flutter können verschiedene Arten von Apps entwickelt werden, einschließlich
+                <h4 data-i18n="faq5_question">Welche Arten von Apps können mit Flutter entwickelt werden?</h4>
+                <p data-i18n="faq5_answer">Mit Flutter können verschiedene Arten von Apps entwickelt werden, einschließlich
                   Geschäfts-,
                   Bildungs-, Unterhaltungs-, Gesundheits- und Finanz-Apps. Flutter eignet sich
                   besonders gut für
@@ -432,16 +432,16 @@
                   erfordern.</p>
               </div>
               <div class="col-md-6 faq-content">
-                <h4>Wie werden Updates und Wartung von Flutter-Apps gehandhabt?</h4>
-                <p>Updates und Wartung können effizient durchgeführt werden, da Flutter die
+                <h4 data-i18n="faq6_question">Wie werden Updates und Wartung von Flutter-Apps gehandhabt?</h4>
+                <p data-i18n="faq6_answer">Updates und Wartung können effizient durchgeführt werden, da Flutter die
                   Möglichkeit bietet,
                   Änderungen schnell umzusetzen und mit Hot Reload sofort zu testen. Dies reduziert
                   die Ausfallzeiten
                   und verbessert die Wartungsfreundlichkeit.</p>
               </div>
               <div class="col-md-6 faq-content">
-                <h4>Welche Integrationen und Plugins sind mit Flutter verfügbar?</h4>
-                <p>Flutter bietet eine breite Palette an Integrationen und Plugins, die verschiedene
+                <h4 data-i18n="faq7_question">Welche Integrationen und Plugins sind mit Flutter verfügbar?</h4>
+                <p data-i18n="faq7_answer">Flutter bietet eine breite Palette an Integrationen und Plugins, die verschiedene
                   Funktionen
                   unterstützen, darunter Firebase, Google Maps, Zahlungen, Authentifizierung und
                   mehr. Diese Plugins
@@ -449,15 +449,13 @@
                   bereitzustellen.</p>
               </div>
               <div class="col-md-6 faq-content">
-                <h4>Wie sieht der Entwicklungsprozess bei Ihrer Flutter-Agentur aus?</h4>
-                <p>Unser Entwicklungsprozess umfasst die Anforderungsanalyse, Design, Entwicklung,
+                <h4 data-i18n="faq8_question">Wie sieht der Entwicklungsprozess bei Ihrer Flutter-Agentur aus?</h4>
+                <p data-i18n="faq8_answer">Unser Entwicklungsprozess umfasst die Anforderungsanalyse, Design, Entwicklung,
                   Testen und
                   Bereitstellung. Wir arbeiten eng mit unseren Kunden zusammen, um sicherzustellen,
                   dass ihre
                   Anforderungen erfüllt werden und die App ihre Erwartungen übertrifft.</p>
               </div>
-
-
             </div>
           </div>
         </div>
@@ -471,9 +469,9 @@
       <div class="row">
         <div class="col-md-12">
           <div class="sectioner-header text-center">
-            <h3>Kontaktieren Sie uns</h3>
+            <h3 data-i18n="contact_title">Kontaktieren Sie uns</h3>
             <span class="line"></span>
-            <p>Wir freuen uns darauf, von Ihnen zu hören. Bitte füllen Sie das untenstehende
+            <p data-i18n="contact_subtitle">Wir freuen uns darauf, von Ihnen zu hören. Bitte füllen Sie das untenstehende
               Formular aus, und wir
               werden uns so schnell wie möglich bei Ihnen melden.</p>
           </div>
@@ -484,16 +482,16 @@
                   <div class="row">
                     <div class="col">
                       <input type="name" id="your_name" class="form-input w-100" name="full-name"
-                        placeholder="Vollständiger Name" required>
+                        placeholder="Vollständiger Name" data-i18n-placeholder="contact_name" required>
                     </div>
                     <div class="col">
                       <input type="email" id="email" class="form-input w-100" name="email" placeholder="E-Mail"
-                        required>
+                        data-i18n-placeholder="contact_email" required>
                     </div>
                   </div>
-                  <input type="message" id="subject" class="form-input w-100" name="subject" placeholder="Betreff">
-                  <textarea class="form-input w-100" id="message" placeholder="Nachricht" name="message"></textarea>
-                  <button class="btn-grad w-100 text-uppercase" type="submit" name="button">Absenden</button>
+                  <input type="message" id="subject" class="form-input w-100" name="subject" placeholder="Betreff" data-i18n-placeholder="contact_subject">
+                  <textarea class="form-input w-100" id="message" placeholder="Nachricht" data-i18n-placeholder="contact_message" name="message"></textarea>
+                  <button class="btn-grad w-100 text-uppercase" type="submit" name="button" data-i18n="contact_submit">Absenden</button>
                 </form>
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
@@ -501,7 +499,7 @@
 
                   <div class="contact-item media"> <i class="fa fa-mobile media-left media-right-margin"></i>
                     <div class="media-body">
-                      <p class="text-uppercase">Telefon</p>
+                      <p class="text-uppercase" data-i18n="contact_phone">Telefon</p>
                       <p class="text-uppercase"><a class="text-white" href="tel:+4952424129026">+49
                           5242 412 9026</a>
                       </p>
@@ -509,15 +507,15 @@
                   </div>
                   <div class="contact-item media"> <i class="fa fa-envelope media-left media-right-margin"></i>
                     <div class="media-body">
-                      <p class="text-uppercase">E-Mail</p>
+                      <p class="text-uppercase" data-i18n="contact_email">E-Mail</p>
                       <p class="text-uppercase"><a class="text-white"
                           href="mailto:alex@fluttera.de">alex@fluttera.de</a></p>
                     </div>
                   </div>
                   <div class="contact-item media"> <i class="fa fa-clock media-left media-right-margin"></i>
                     <div class="media-body">
-                      <p class="text-uppercase">Öffnungszeiten</p>
-                      <p class="text-uppercase">Mo-Fr 9.00 - 17.00 Uhr</p>
+                      <p class="text-uppercase" data-i18n="contact_hours">Öffnungszeiten</p>
+                      <p class="text-uppercase" data-i18n="contact_hours_time">Mo-Fr 9.00 - 17.00 Uhr</p>
                     </div>
                   </div>
                 </div>
@@ -536,12 +534,12 @@
   <footer class="bg-black text-center py-5">
     <div class="container px-5">
       <div class="text-white-50 small">
-        <div class="mb-2">&copy; Fluttera 2023. Ihre Flutter Agentur.</div>
-        <a href="impressum.html">Impressum</a>
+        <div class="mb-2" data-i18n="footer_copyright">&copy; Fluttera 2023. Ihre Flutter Agentur.</div>
+        <a href="impressum.html" data-i18n="footer_imprint">Impressum</a>
         <span class="mx-1">&middot;</span>
-        <a href="#">AGBs</a>
+        <a href="#" data-i18n="footer_terms">AGBs</a>
         <span class="mx-1">&middot;</span>
-        <a href="datenschutz.html">Datenschutz</a>
+        <a href="datenschutz.html" data-i18n="footer_privacy">Datenschutz</a>
       </div>
     </div>
   </footer>
