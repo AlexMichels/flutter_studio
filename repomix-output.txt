@@ -1,4 +1,5 @@
 This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+The content has been processed where content has been compressed (code blocks are separated by ⋮---- delimiter).
 
 ================================================================
 File Summary
@@ -38,6 +39,7 @@ Notes:
 - Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
 - Files matching patterns in .gitignore are excluded
 - Files matching default ignore patterns are excluded
+- Content has been compressed - code blocks are separated by ⋮---- delimiter
 
 Additional Info:
 ----------------
@@ -63,6 +65,8 @@ index.html
 License.txt
 privacy.html
 README.md
+robots.txt
+sitemap.xml
 style.css
 
 ================================================================
@@ -3714,160 +3718,143 @@ File: js/language-switcher.js
 ================
 // Language switcher functionality
 document.addEventListener('DOMContentLoaded', function() {
-  // Default language is German
-  let currentLanguage = localStorage.getItem('language') || getBrowserLanguage() || 'de';
-  
-  // Initialize language on page load
-  setLanguage(currentLanguage);
-  
-  // Add language switcher to the navbar
-  addLanguageSwitcher();
-  
-  /**
+// Default language is German
+let currentLanguage = localStorage.getItem('language') || getBrowserLanguage() || 'de';
+⋮----
+// Initialize language on page load
+setLanguage(currentLanguage);
+⋮----
+// Add language switcher to the navbar
+addLanguageSwitcher();
+⋮----
+/**
    * Detects the browser language
    * @returns {string} Language code (en or de)
    */
-  function getBrowserLanguage() {
-    const browserLang = navigator.language || navigator.userLanguage;
-    // Only return en if browser language starts with en, otherwise default to de
-    return browserLang.startsWith('en') ? 'en' : 'de';
-  }
-  
-  /**
+function getBrowserLanguage() {
+⋮----
+// Only return en if browser language starts with en, otherwise default to de
+return browserLang.startsWith('en') ? 'en' : 'de';
+⋮----
+/**
    * Adds the language switcher to the navbar
    */
-  function addLanguageSwitcher() {
-    // Find the container where we want to add the language switcher
-    // (to the right of the CTA button)
-    const ctaButton = document.querySelector('.navbar .btn-primary');
-    if (!ctaButton || !ctaButton.parentNode) return;
-    
-    // Create language switcher container
-    const switcherContainer = document.createElement('div');
-    switcherContainer.className = 'language-switcher ms-3 d-flex align-items-center';
-    
-    // Create flag span element (no button styling)
-    const flagElement = document.createElement('span');
-    flagElement.className = 'language-flag';
-    // If current language is German, show English (US/UK) flag to switch to English
-    // If current language is English, show German flag to switch to German
-    flagElement.innerHTML = currentLanguage === 'de' ? '🇬🇧' : '🇩🇪';
-    flagElement.style.cursor = 'pointer'; // Make it clear it's clickable
-    flagElement.addEventListener('click', () => {
-      // Toggle between languages
-      const newLang = currentLanguage === 'de' ? 'en' : 'de';
-      setLanguage(newLang);
-    });
-    
-    // Add flag to container
-    switcherContainer.appendChild(flagElement);
-    
-    // Add container after the CTA button (as the rightmost element)
-    ctaButton.parentNode.insertBefore(switcherContainer, ctaButton.nextSibling);
-  }
-  
-  /**
+function addLanguageSwitcher() {
+// Find the container where we want to add the language switcher
+// (to the right of the CTA button)
+const ctaButton = document.querySelector('.navbar .btn-primary');
+⋮----
+// Create language switcher container
+const switcherContainer = document.createElement('div');
+⋮----
+// Create flag span element (no button styling)
+const flagElement = document.createElement('span');
+⋮----
+// If current language is German, show English (US/UK) flag to switch to English
+// If current language is English, show German flag to switch to German
+⋮----
+flagElement.style.cursor = 'pointer'; // Make it clear it's clickable
+flagElement.addEventListener('click', () => {
+// Toggle between languages
+⋮----
+setLanguage(newLang);
+⋮----
+// Add flag to container
+switcherContainer.appendChild(flagElement);
+⋮----
+// Add container after the CTA button (as the rightmost element)
+ctaButton.parentNode.insertBefore(switcherContainer, ctaButton.nextSibling);
+⋮----
+/**
    * Sets the current language and updates the UI
    * @param {string} lang - The language code ('en' or 'de')
    */
-  function setLanguage(lang) {
-    if (lang !== 'en' && lang !== 'de') {
-      lang = 'de'; // Default to German if invalid language
-    }
-    
-    currentLanguage = lang;
-    document.documentElement.lang = lang;
-    localStorage.setItem('language', lang);
-    
-    // Update the flag to show the opposite language
-    const flagElement = document.querySelector('.language-flag');
-    if (flagElement) {
-      flagElement.innerHTML = lang === 'de' ? '🇬🇧' : '🇩🇪';
-    }
-    
-    // Update all translatable elements
-    updateTranslations();
-    
-    // Update meta tags
-    updateMetaTags();
-    
-    // Update footer links
-    updateFooterLinks();
-  }
-  
-  /**
+function setLanguage(lang) {
+⋮----
+lang = 'de'; // Default to German if invalid language
+⋮----
+localStorage.setItem('language', lang);
+⋮----
+// Update the flag to show the opposite language
+const flagElement = document.querySelector('.language-flag');
+⋮----
+// Update all translatable elements
+updateTranslations();
+⋮----
+// Update meta tags
+updateMetaTags();
+⋮----
+// Update footer links
+updateFooterLinks();
+⋮----
+/**
    * Updates footer links based on language
    */
-  function updateFooterLinks() {
-    const imprintLink = document.querySelector('a[data-i18n="footer_imprint"]');
-    const privacyLink = document.querySelector('a[data-i18n="footer_privacy"]');
-    
-    if (imprintLink) {
-      imprintLink.href = currentLanguage === 'en' ? 'imprint.html' : 'impressum.html';
-    }
-    
-    if (privacyLink) {
-      privacyLink.href = currentLanguage === 'en' ? 'privacy.html' : 'datenschutz.html';
-    }
-  }
-  
-  /**
+function updateFooterLinks() {
+const imprintLink = document.querySelector('a[data-i18n="footer_imprint"]');
+const privacyLink = document.querySelector('a[data-i18n="footer_privacy"]');
+⋮----
+/**
    * Updates all translatable elements on the page
    */
-  function updateTranslations() {
-    // Update HTML content for elements with data-i18n
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(element => {
-      const key = element.getAttribute('data-i18n');
-      if (translations[currentLanguage] && translations[currentLanguage][key]) {
-        element.innerHTML = translations[currentLanguage][key];
-      }
-    });
-    
-    // Update placeholders for form elements
-    const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
-    placeholderElements.forEach(element => {
-      const key = element.getAttribute('data-i18n-placeholder');
-      if (translations[currentLanguage] && translations[currentLanguage][key]) {
-        element.placeholder = translations[currentLanguage][key];
-      }
-    });
-  }
-  
-  /**
+function updateTranslations() {
+// Update HTML content for elements with data-i18n
+const elements = document.querySelectorAll('[data-i18n]');
+elements.forEach(element => {
+const key = element.getAttribute('data-i18n');
+⋮----
+// Update placeholders for form elements
+const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+placeholderElements.forEach(element => {
+const key = element.getAttribute('data-i18n-placeholder');
+⋮----
+/**
    * Updates meta tags for SEO
    */
-  function updateMetaTags() {
-    // Update title
-    document.title = translations[currentLanguage].meta_title;
-    
-    // Update meta description
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', translations[currentLanguage].meta_description);
-    }
-    
-    // Update meta keywords
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', translations[currentLanguage].meta_keywords);
-    }
-    
-    // Update OG tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) {
-      ogTitle.setAttribute('content', translations[currentLanguage].og_title);
-    }
-    
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) {
-      ogDesc.setAttribute('content', translations[currentLanguage].og_description);
-    }
-  }
-  
-  // Expose language setter for use in other scripts
-  window.setLanguage = setLanguage;
-});
+function updateMetaTags() {
+// Update title
+⋮----
+// Update meta description
+const metaDesc = document.querySelector('meta[name="description"]');
+⋮----
+metaDesc.setAttribute('content', translations[currentLanguage].meta_description);
+⋮----
+// Update meta keywords
+const metaKeywords = document.querySelector('meta[name="keywords"]');
+⋮----
+metaKeywords.setAttribute('content', translations[currentLanguage].meta_keywords);
+⋮----
+// Update OG tags
+const ogTitle = document.querySelector('meta[property="og:title"]');
+⋮----
+ogTitle.setAttribute('content', translations[currentLanguage].og_title);
+⋮----
+const ogDesc = document.querySelector('meta[property="og:description"]');
+⋮----
+ogDesc.setAttribute('content', translations[currentLanguage].og_description);
+⋮----
+// Update OG locale
+const ogLocale = document.querySelector('meta[property="og:locale"]');
+⋮----
+ogLocale.setAttribute('content', currentLanguage === 'de' ? 'de_DE' : 'en_US');
+⋮----
+// Update Twitter tags
+const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+⋮----
+twitterTitle.setAttribute('content', translations[currentLanguage].twitter_title);
+⋮----
+const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+⋮----
+twitterDesc.setAttribute('content', translations[currentLanguage].twitter_description);
+⋮----
+// Update hreflang URLs
+const hreflangDE = document.querySelector('link[hreflang="de"]');
+const hreflangEN = document.querySelector('link[hreflang="en"]');
+⋮----
+hreflangDE.setAttribute('href', baseUrl);
+hreflangEN.setAttribute('href', baseUrl + '?lang=en');
+⋮----
+// Expose language setter for use in other scripts
 
 ================
 File: js/scrollIt.min.js
@@ -3878,233 +3865,35 @@ File: js/scrollIt.min.js
 File: js/translations.js
 ================
 // Translations for the website
-const translations = {
-  en: {
-    // Meta information
-    "meta_title": "Fluttera - The Flutter Agency for German SMEs",
-    "meta_description": "Professional Flutter app development in Germany. We develop high-quality apps for iOS, Android and web with Flutter. German Flutter agency from Berlin.",
-    "meta_keywords": "Flutter Agency, Flutter Development Germany, Flutter App, App Development, German App Agency, Flutter Berlin, Cross-Platform App",
-    "og_title": "Fluttera - The leading Flutter agency in Germany",
-    "og_description": "Professional Flutter app development in Germany. We develop high-quality apps for iOS, Android and web with Flutter.",
-    
-    // Navigation
-    "nav_home": "Home",
-    "nav_services": "Services",
-    "nav_about": "About Us",
-    "nav_faq": "FAQ",
-    "nav_contact": "Contact",
-    "nav_cta": "BOOK APPOINTMENT",
-    
-    // Banner
-    "banner_title": "Custom App Development with Flutter in Germany",
-    "banner_subtitle": "Tailored Flutter apps for Web, Android and iOS.",
-    "banner_text1": "We help you with your complete custom app development. Thanks to our numerous successful development projects throughout Germany, we have the necessary know-how to implement your ideas quickly and efficiently.",
-    "banner_text2": "We support you throughout the entire development process. From design, coding, bug fixing to support after going live. For a project assessment, feel free to book an appointment with us.",
-    "banner_contact": "Contact",
-    "banner_call": "Call",
-    
-    // Development Process
-    "process_title": "Typical Development Process",
-    "process_subtitle": "We are experts in Flutter app development and offer tailored solutions for all your requirements.",
-    "process_box1_title": "Agile Project Planning & Design Planning",
-    "process_box1_text": "We start with agile project planning and detailed design discussions to understand your requirements and visions.",
-    "process_box2_title": "Development for iOS, Android & optional Web",
-    "process_box2_text": "Our developers work on cross-platform solutions for iOS, Android and optionally for web to ensure a seamless user experience.",
-    "process_box3_title": "Release, Bugfixes & User Analytics",
-    "process_box3_text": "After release, we take care of bug fixes and conduct comprehensive user analytics to continuously improve the app.",
-    "process_cta": "Book Appointment",
-    
-    // Video Section
-    "video_text": "Now reach a wider audience with cross-platform applications that run smoothly on both iOS and Android while providing a consistent user experience.",
-    
-    // Features Section
-    "features_title": "Flutter helps to move faster",
-    "features_subtitle": "We look forward to working with you on your next successful mobile project. Contact us to receive a non-binding offer or to learn more about our service.",
-    "feature1_title": "Fast Market Launch",
-    "feature1_text": "Thanks to efficient development processes, apps can be brought to market faster.",
-    "feature2_title": "Low Energy Consumption",
-    "feature2_text": "Our apps are designed to be energy efficient.",
-    "feature3_title": "Fast Backend with Firebase",
-    "feature3_text": "Firebase offers a fast, scalable and reliable backend solution.",
-    "feature4_title": "Riverpod Architecture",
-    "feature4_text": "With Riverpod and a feature-first approach, we optimize your app's performance and ensure easily maintainable code.",
-    "feature5_title": "Save Money",
-    "feature5_text": "Flutter helps reduce costs by requiring only one team for development.",
-    "feature6_title": "High Performance",
-    "feature6_text": "Flutter apps offer native performance and smooth user experiences.",
-    
-    // About Us Section
-    "about_title": "About Us",
-    "about_text": "With a dynamic team of 4 highly qualified experts, including our CEO Patrick and CTO & Lead Developer Alex as well as two software developers, we have more than 15 years of combined experience.<br><br>We have already supported several large projects and achieved results of over 21,000 positive app ratings for projects. Trust our expertise to successfully bring your app to market.",
-    "about_dev": "Flutter Lead Developer",
-    "about_coord": "Project Coordinator",
-    
-    // Project Experience Section
-    "project_title": "Project Experiences",
-    "project_subtitle": "Take a look at some of our successfully completed projects.",
-    "project1_title": "Smart Home Provider",
-    "project1_text": "We co-developed an app for a major European smart home provider with hundreds of thousands of customers, enabling control over a variety of smart home devices. Our work included architecture definition, CICD, and many other complex tasks.",
-    "project2_title": "MedTech Company",
-    "project2_text": "For a leading MedTech company, we developed a prescription app that helps patients recover after cruciate ligament tears or meniscus injuries. This app meets the highest safety and quality standards and can be prescribed by any doctor in Germany.",
-    "project3_title": "In-house Accounting App",
-    "project3_text": "We developed an accounting app for small businesses that optimizes internal processes and enables simple financial management.",
-    "project4_title": "MVP for Start-Up",
-    "project4_text": "For a start-up, we developed an MVP (Minimum Viable Product) that includes a note-taking app.",
-    
-    // FAQ Section
-    "faq_title": "Frequently Asked Questions",
-    "faq_subtitle": "Here you'll find answers to some frequently asked questions about our Flutter services.",
-    "faq1_question": "What is Flutter and why should I use it?",
-    "faq1_answer": "Flutter is an open-source framework from Google for developing cross-platform apps. It enables the creation of applications for iOS, Android, Web, and Desktop with a single codebase. It offers high performance and a unified user experience.",
-    "faq2_question": "What advantages does Flutter offer compared to other cross-platform frameworks?",
-    "faq2_answer": "Flutter offers native performance, a rich collection of pre-built widgets, and quick development time. It uses the Dart programming language and enables Hot Reload, which accelerates development and debugging.",
-    "faq3_question": "How long does it take to develop a Flutter app?",
-    "faq3_answer": "Development time depends on the complexity of the app and specific requirements. Simple apps can be developed in a few weeks, while more complex applications can take several months.",
-    "faq4_question": "Can Flutter be used for web and desktop applications?",
-    "faq4_answer": "Yes, Flutter supports the development of web and desktop applications in addition to mobile apps. This allows developers to provide a consistent user experience across different platforms.",
-    "faq5_question": "What types of apps can be developed with Flutter?",
-    "faq5_answer": "Various types of apps can be developed with Flutter, including business, education, entertainment, health, and finance apps. Flutter is particularly well-suited for applications that require an appealing user interface and high performance.",
-    "faq6_question": "How are updates and maintenance of Flutter apps handled?",
-    "faq6_answer": "Updates and maintenance can be efficiently performed as Flutter offers the ability to implement changes quickly and test them immediately with Hot Reload. This reduces downtime and improves maintainability.",
-    "faq7_question": "What integrations and plugins are available with Flutter?",
-    "faq7_answer": "Flutter offers a wide range of integrations and plugins that support various functions, including Firebase, Google Maps, payments, authentication, and more. These plugins can be easily integrated into your app to provide additional functionality.",
-    "faq8_question": "What does the development process at your Flutter agency look like?",
-    "faq8_answer": "Our development process includes requirements analysis, design, development, testing, and deployment. We work closely with our clients to ensure their requirements are met and the app exceeds their expectations.",
-    
-    // Contact Section
-    "contact_title": "Contact Us",
-    "contact_subtitle": "We look forward to hearing from you. Please fill out the form below, and we will get back to you as soon as possible.",
-    "contact_name": "Full Name",
-    "contact_email": "Email",
-    "contact_subject": "Subject",
-    "contact_message": "Message",
-    "contact_submit": "Submit",
-    "contact_phone": "Phone",
-    "contact_hours": "Opening Hours",
-    "contact_hours_time": "Mon-Fri 9.00 - 17.00",
-    
-    // Footer
-    "footer_copyright": "© Fluttera 2023. Your Flutter Agency.",
-    "footer_imprint": "Imprint",
-    "footer_terms": "Terms",
-    "footer_privacy": "Privacy"
-  },
-  de: {
-    // Meta information
-    "meta_title": "Fluttera - Die Flutter Agentur fur den deutschen Mittelstand",
-    "meta_description": "Professionelle Flutter App-Entwicklung in Deutschland. Wir entwickeln hochwertige Apps für iOS, Android und Web mit Flutter. Deutsche Flutter Agentur aus Berlin.",
-    "meta_keywords": "Flutter Agentur, Flutter Entwicklung Deutschland, Flutter App, App Entwicklung, Deutsche App-Agentur, Flutter Berlin, Cross-Platform App",
-    "og_title": "Fluttera - Die führende Flutter Agentur in Deutschland",
-    "og_description": "Professionelle Flutter App-Entwicklung in Deutschland. Wir entwickeln hochwertige Apps für iOS, Android und Web mit Flutter.",
-    
-    // Navigation
-    "nav_home": "Startseite",
-    "nav_services": "Dienstleistungen",
-    "nav_about": "Über uns",
-    "nav_faq": "FAQ",
-    "nav_contact": "Kontakt",
-    "nav_cta": "TERMIN VEREINBAREN",
-    
-    // Banner
-    "banner_title": "Individuelle App-Entwicklung mit Flutter in Deutschland",
-    "banner_subtitle": "Maßgeschneiderte Flutter Apps für Web, Android und iOS.",
-    "banner_text1": "Wir helfen Ihnen mit Ihrer kompletten individuellen App-Entwicklung. Durch unsere zahlreichen erfolgreichen Entwicklungsprojekte in ganz Deutschland verfügen wir über das nötige Know-how, Ihre Ideen schnell und effizient umzusetzen.",
-    "banner_text2": "Wir unterstützen Sie im gesamten Entwicklungsprozess. Vom Design, Coding, Bug-Fixing bis hin zum Support nach der Live-Schaltung. Für eine Projekteinschätzung können Sie gerne unverbindlich einen Termin mit uns buchen.",
-    "banner_contact": "Kontakt",
-    "banner_call": "Anrufen",
-    
-    // Development Process
-    "process_title": "Typischer Entwicklungsablauf",
-    "process_subtitle": "Wir sind Experten in der Entwicklung von Flutter-Apps und bieten maßgeschneiderte Lösungen für alle Ihre Anforderungen.",
-    "process_box1_title": "Agile Projektplanung & Design Planung",
-    "process_box1_text": "Wir starten mit einer agilen Projektplanung und detaillierten Design-Besprechung, um Ihre Anforderungen und Visionen zu verstehen.",
-    "process_box2_title": "Entwicklung für iOS, Android & optional Web",
-    "process_box2_text": "Unsere Entwickler arbeiten an plattformübergreifenden Lösungen für iOS, Android und optional für Web, um eine nahtlose Nutzererfahrung zu gewährleisten.",
-    "process_box3_title": "Release, Bugfixes & Nutzeranalysen",
-    "process_box3_text": "Nach dem Release kümmern wir uns um Bugfixes und führen umfassende Nutzeranalysen durch, um die App kontinuierlich zu verbessern.",
-    "process_cta": "Termin Buchen",
-    
-    // Video Section
-    "video_text": "Jetzt Erreichen Sie ein breiteres Publikum mit plattformübergreifenden Anwendungen, die sowohl auf iOS als auch auf Android reibungslos funktionieren und dabei eine konsistente Benutzererfahrung bieten.",
-    
-    // Features Section
-    "features_title": "Flutter hilft, schneller voranzukommen",
-    "features_subtitle": "Wir freuen uns darauf, mit Ihnen an Ihrem nächsten erfolgreichen mobilen Projekt zu arbeiten. Nehmen Sie Kontakt mit uns auf, um ein unverbindliches Angebot zu erhalten oder mehr über unseren Service zu erfahren.",
-    "feature1_title": "Schnelle Markteinführung",
-    "feature1_text": "Dank der effizienten Entwicklungsprozesse können Apps schneller auf den Markt gebracht werden.",
-    "feature2_title": "Geringer Energieverbrauch",
-    "feature2_text": "Unsere Apps sind energieeffizient gestaltet.",
-    "feature3_title": "Schnelles Backend mit Firebase",
-    "feature3_text": "Firebase bietet eine schnelle, skalierbare und zuverlässige Backend-Lösung.",
-    "feature4_title": "Riverpod-Architektur",
-    "feature4_text": "Mit Riverpod und einem Feature-First-Approach optimieren wir die Leistung Ihrer App und sorgen für einen leicht wartbaren Code.",
-    "feature5_title": "Geld sparen",
-    "feature5_text": "Flutter hilft, Kosten zu senken, indem nur ein Team für die Entwicklung benötigt wird.",
-    "feature6_title": "Hohe Performance",
-    "feature6_text": "Flutter-Apps bieten native Performance und flüssige Benutzererlebnisse.",
-    
-    // About Us Section
-    "about_title": "Über uns",
-    "about_text": "Mit einem dynamischen Team bestehend aus 4 hochqualifizierten Experten, darunter unser CEO Patrick und CTO & Lead Developer Alex sowie zwei Softwareentwicklern, verfügen wir über mehr als 15 Jahre kombinierte Erfahrung.<br><br>Wir haben bereits mehrere große Projekte betreut und Ergebnisse von über 21.000 positiven App-Bewertungen bei Projekten erzielt. Vertrauen Sie auf unsere Fachkompetenz, um Ihre App erfolgreich auf dem Markt zu bringen.",
-    "about_dev": "Flutter Lead Developer",
-    "about_coord": "Projektkoordinator",
-    
-    // Project Experience Section
-    "project_title": "Projekt-Erfahrungen",
-    "project_subtitle": "Werfen Sie einen Blick auf einige unserer erfolgreich abgeschlossenen Projekte.",
-    "project1_title": "Smart Home Anbieter",
-    "project1_text": "Wir haben für einen großen europäischen Smart Home Anbieter mit Hunderttausenden von Kunden eine App mitentwickelt, die die Kontrolle über eine Vielzahl von Smart Home Geräten ermöglicht. Unsere Arbeit umfasste definition der Architektur CICD und viele andere komplexe Aufgaben.",
-    "project2_title": "MedTech Unternehmen",
-    "project2_text": "Für ein führendes MedTech-Unternehmen haben wir eine verschreibungspflichtige App entwickelt, die Patienten nach Kreuzbandrissen oder Meniskusschäden hilft, wieder fit zu werden. Diese App erfüllt höchste Sicherheits- und Qualitätsstandards und kann von jedem Arzt in Deutschland verschrieben werden.",
-    "project3_title": "Inhouse Buchhaltungs-App",
-    "project3_text": "Wir haben eine Buchhaltungs-App für kleine Unternehmen entwickelt, die interne Prozesse optimiert und eine einfache Verwaltung der Finanzen ermöglicht.",
-    "project4_title": "MVP für Start-Up",
-    "project4_text": "Für ein Start-Up haben wir einen MVP (Minimum Viable Product) entwickelt, der eine Note-Taking-App umfasst.",
-    
-    // FAQ Section
-    "faq_title": "Häufig gestellte Fragen",
-    "faq_subtitle": "Hier finden Sie Antworten auf einige häufig gestellte Fragen zu unseren Flutter-Dienstleistungen.",
-    "faq1_question": "Was ist Flutter und warum sollte ich es verwenden?",
-    "faq1_answer": "Flutter ist ein Open-Source-Framework von Google zur Entwicklung von plattformübergreifenden Apps. Es ermöglicht die Erstellung von Anwendungen für iOS, Android, Web und Desktop mit einer einzigen Codebasis. Es bietet eine hohe Performance und ein einheitliches Benutzererlebnis.",
-    "faq2_question": "Welche Vorteile bietet Flutter im Vergleich zu anderen plattformübergreifenden Frameworks?",
-    "faq2_answer": "Flutter bietet eine native Performance, eine reichhaltige Sammlung an vorgefertigten Widgets und eine schnelle Entwicklungszeit. Es verwendet die Dart-Programmiersprache und ermöglicht Hot Reload, was die Entwicklung und das Debugging beschleunigt.",
-    "faq3_question": "Wie lange dauert es, eine Flutter-App zu entwickeln?",
-    "faq3_answer": "Die Entwicklungszeit hängt von der Komplexität der App und den spezifischen Anforderungen ab. Einfache Apps können in wenigen Wochen entwickelt werden, während komplexere Anwendungen mehrere Monate in Anspruch nehmen können.",
-    "faq4_question": "Kann Flutter für Web- und Desktop-Anwendungen verwendet werden?",
-    "faq4_answer": "Ja, Flutter unterstützt die Entwicklung von Web- und Desktop-Anwendungen zusätzlich zu mobilen Apps. Dies ermöglicht es Entwicklern, eine konsistente Benutzererfahrung über verschiedene Plattformen hinweg zu bieten.",
-    "faq5_question": "Welche Arten von Apps können mit Flutter entwickelt werden?",
-    "faq5_answer": "Mit Flutter können verschiedene Arten von Apps entwickelt werden, einschließlich Geschäfts-, Bildungs-, Unterhaltungs-, Gesundheits- und Finanz-Apps. Flutter eignet sich besonders gut für Anwendungen, die eine ansprechende Benutzeroberfläche und eine hohe Performance erfordern.",
-    "faq6_question": "Wie werden Updates und Wartung von Flutter-Apps gehandhabt?",
-    "faq6_answer": "Updates und Wartung können effizient durchgeführt werden, da Flutter die Möglichkeit bietet, Änderungen schnell umzusetzen und mit Hot Reload sofort zu testen. Dies reduziert die Ausfallzeiten und verbessert die Wartungsfreundlichkeit.",
-    "faq7_question": "Welche Integrationen und Plugins sind mit Flutter verfügbar?",
-    "faq7_answer": "Flutter bietet eine breite Palette an Integrationen und Plugins, die verschiedene Funktionen unterstützen, darunter Firebase, Google Maps, Zahlungen, Authentifizierung und mehr. Diese Plugins können leicht in Ihre App integriert werden, um zusätzliche Funktionalitäten bereitzustellen.",
-    "faq8_question": "Wie sieht der Entwicklungsprozess bei Ihrer Flutter-Agentur aus?",
-    "faq8_answer": "Unser Entwicklungsprozess umfasst die Anforderungsanalyse, Design, Entwicklung, Testen und Bereitstellung. Wir arbeiten eng mit unseren Kunden zusammen, um sicherzustellen, dass ihre Anforderungen erfüllt werden und die App ihre Erwartungen übertrifft.",
-    
-    // Contact Section
-    "contact_title": "Kontaktieren Sie uns",
-    "contact_subtitle": "Wir freuen uns darauf, von Ihnen zu hören. Bitte füllen Sie das untenstehende Formular aus, und wir werden uns so schnell wie möglich bei Ihnen melden.",
-    "contact_name": "Vollständiger Name",
-    "contact_email": "E-Mail",
-    "contact_subject": "Betreff",
-    "contact_message": "Nachricht",
-    "contact_submit": "Absenden",
-    "contact_phone": "Telefon",
-    "contact_hours": "Öffnungszeiten",
-    "contact_hours_time": "Mo-Fr 9.00 - 17.00 Uhr",
-    
-    // Footer
-    "footer_copyright": "© Fluttera 2023. Ihre Flutter Agentur.",
-    "footer_imprint": "Impressum",
-    "footer_terms": "AGBs",
-    "footer_privacy": "Datenschutz"
-  }
-};
+⋮----
+// Meta information
+⋮----
+// Navigation
+⋮----
+// Banner
+⋮----
+// Development Process
+⋮----
+// Video Section
+⋮----
+// Features Section
+⋮----
+// About Us Section
+⋮----
+// Project Experience Section
+⋮----
+// FAQ Section
+⋮----
+// Contact Section
+⋮----
+// Footer
 
 ================
 File: js/wow.min.js
 ================
 /*! WOW - v1.1.3 - 2016-05-06
+* Copyright (c) 2025 Alexander Michels;*/(function () { var a, b, c, d, e, f = function (a, b) { return function () { return a.apply(b, arguments) } }, g = [].indexOf || function (a) { for (var b = 0, c = this.length; c > b; b++)if (b in this && this[b] === a) return b; return -1 }; b = function () { function a() { } return a.prototype.extend = function (a, b) { var c, d; for (c in b) d = b[c], null == a[c] && (a[c] = d); return a }, a.prototype.isMobile = function (a) { return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(a) }, a.prototype.createEvent = function (a, b, c, d) { var e; return null == b && (b = !1), null == c && (c = !1), null == d && (d = null), null != document.createEvent ? (e = document.createEvent("CustomEvent"), e.initCustomEvent(a, b, c, d)) : null != document.createEventObject ? (e = document.createEventObject(), e.eventType = a) : e.eventName = a, e }, a.prototype.emitEvent = function (a, b) { return null != a.dispatchEvent ? a.dispatchEvent(b) : b in (null != a) ? a[b]() : "on" + b in (null != a) ? a["on" + b]() : void 0 }, a.prototype.addEvent = function (a, b, c) { return null != a.addEventListener ? a.addEventListener(b, c, !1) : null != a.attachEvent ? a.attachEvent("on" + b, c) : a[b] = c }, a.prototype.removeEvent = function (a, b, c) { return null != a.removeEventListener ? a.removeEventListener(b, c, !1) : null != a.detachEvent ? a.detachEvent("on" + b, c) : delete a[b] }, a.prototype.innerHeight = function () { return "innerHeight" in window ? window.innerHeight : document.documentElement.clientHeight }, a }(), c = this.WeakMap || this.MozWeakMap || (c = function () { function a() { this.keys = [], this.values = [] } return a.prototype.get = function (a) { var b, c, d, e, f; for (f = this.keys, b = d = 0, e = f.length; e > d; b = ++d)if (c = f[b], c === a) return this.values[b] }, a.prototype.set = function (a, b) { var c, d, e, f, g; for (g = this.keys, c = e = 0, f = g.length; f > e; c = ++e)if (d = g[c], d === a) return void (this.values[c] = b); return this.keys.push(a), this.values.push(b) }, a }()), a = this.MutationObserver || this.WebkitMutationObserver || this.MozMutationObserver || (a = function () { function a() { "undefined" != typeof console && null !== console && console.warn("MutationObserver is not supported by your browser."), "undefined" != typeof console && null !== console && console.warn("WOW.js cannot detect dom mutations, please call .sync() after loading new content.") } return a.notSupported = !0, a.prototype.observe = function () { }, a }()), d = this.getComputedStyle || function (a, b) { return this.getPropertyValue = function (b) { var c; return "float" === b && (b = "styleFloat"), e.test(b) && b.replace(e, function (a, b) { return b.toUpperCase() }), (null != (c = a.currentStyle) ? c[b] : void 0) || null }, this }, e = /(\-([a-z]){1})/g, this.WOW = function () { function e(a) { null == a && (a = {}), this.scrollCallback = f(this.scrollCallback, this), this.scrollHandler = f(this.scrollHandler, this), this.resetAnimation = f(this.resetAnimation, this), this.start = f(this.start, this), this.scrolled = !0, this.config = this.util().extend(a, this.defaults), null != a.scrollContainer && (this.config.scrollContainer = document.querySelector(a.scrollContainer)), this.animationNameCache = new c, this.wowEvent = this.util().createEvent(this.config.boxClass) } return e.prototype.defaults = { boxClass: "wow", animateClass: "animated", offset: 0, mobile: !0, live: !0, callback: null, scrollContainer: null }, e.prototype.init = function () { var a; return this.element = window.document.documentElement, "interactive" === (a = document.readyState) || "complete" === a ? this.start() : this.util().addEvent(document, "DOMContentLoaded", this.start), this.finished = [] }, e.prototype.start = function () { var b, c, d, e; if (this.stopped = !1, this.boxes = function () { var a, c, d, e; for (d = this.element.querySelectorAll("." + this.config.boxClass), e = [], a = 0, c = d.length; c > a; a++)b = d[a], e.push(b); return e }.call(this), this.all = function () { var a, c, d, e; for (d = this.boxes, e = [], a = 0, c = d.length; c > a; a++)b = d[a], e.push(b); return e }.call(this), this.boxes.length) if (this.disabled()) this.resetStyle(); else for (e = this.boxes, c = 0, d = e.length; d > c; c++)b = e[c], this.applyStyle(b, !0); return this.disabled() || (this.util().addEvent(this.config.scrollContainer || window, "scroll", this.scrollHandler), this.util().addEvent(window, "resize", this.scrollHandler), this.interval = setInterval(this.scrollCallback, 50)), this.config.live ? new a(function (a) { return function (b) { var c, d, e, f, g; for (g = [], c = 0, d = b.length; d > c; c++)f = b[c], g.push(function () { var a, b, c, d; for (c = f.addedNodes || [], d = [], a = 0, b = c.length; b > a; a++)e = c[a], d.push(this.doSync(e)); return d }.call(a)); return g } }(this)).observe(document.body, { childList: !0, subtree: !0 }) : void 0 }, e.prototype.stop = function () { return this.stopped = !0, this.util().removeEvent(this.config.scrollContainer || window, "scroll", this.scrollHandler), this.util().removeEvent(window, "resize", this.scrollHandler), null != this.interval ? clearInterval(this.interval) : void 0 }, e.prototype.sync = function (b) { return a.notSupported ? this.doSync(this.element) : void 0 }, e.prototype.doSync = function (a) { var b, c, d, e, f; if (null == a && (a = this.element), 1 === a.nodeType) { for (a = a.parentNode || a, e = a.querySelectorAll("." + this.config.boxClass), f = [], c = 0, d = e.length; d > c; c++)b = e[c], g.call(this.all, b) < 0 ? (this.boxes.push(b), this.all.push(b), this.stopped || this.disabled() ? this.resetStyle() : this.applyStyle(b, !0), f.push(this.scrolled = !0)) : f.push(void 0); return f } }, e.prototype.show = function (a) { return this.applyStyle(a), a.className = a.className + " " + this.config.animateClass, null != this.config.callback && this.config.callback(a), this.util().emitEvent(a, this.wowEvent), this.util().addEvent(a, "animationend", this.resetAnimation), this.util().addEvent(a, "oanimationend", this.resetAnimation), this.util().addEvent(a, "webkitAnimationEnd", this.resetAnimation), this.util().addEvent(a, "MSAnimationEnd", this.resetAnimation), a }, e.prototype.applyStyle = function (a, b) { var c, d, e; return d = a.getAttribute("data-wow-duration"), c = a.getAttribute("data-wow-delay"), e = a.getAttribute("data-wow-iteration"), this.animate(function (f) { return function () { return f.customStyle(a, b, d, c, e) } }(this)) }, e.prototype.animate = function () { return "requestAnimationFrame" in window ? function (a) { return window.requestAnimationFrame(a) } : function (a) { return a() } }(), e.prototype.resetStyle = function () { var a, b, c, d, e; for (d = this.boxes, e = [], b = 0, c = d.length; c > b; b++)a = d[b], e.push(a.style.visibility = "visible"); return e }, e.prototype.resetAnimation = function (a) { var b; return a.type.toLowerCase().indexOf("animationend") >= 0 ? (b = a.target || a.srcElement, b.className = b.className.replace(this.config.animateClass, "").trim()) : void 0 }, e.prototype.customStyle = function (a, b, c, d, e) { return b && this.cacheAnimationName(a), a.style.visibility = b ? "hidden" : "visible", c && this.vendorSet(a.style, { animationDuration: c }), d && this.vendorSet(a.style, { animationDelay: d }), e && this.vendorSet(a.style, { animationIterationCount: e }), this.vendorSet(a.style, { animationName: b ? "none" : this.cachedAnimationName(a) }), a }, e.prototype.vendors = ["moz", "webkit"], e.prototype.vendorSet = function (a, b) { var c, d, e, f; d = []; for (c in b) e = b[c], a["" + c] = e, d.push(function () { var b, d, g, h; for (g = this.vendors, h = [], b = 0, d = g.length; d > b; b++)f = g[b], h.push(a["" + f + c.charAt(0).toUpperCase() + c.substr(1)] = e); return h }.call(this)); return d }, e.prototype.vendorCSS = function (a, b) { var c, e, f, g, h, i; for (h = d(a), g = h.getPropertyCSSValue(b), f = this.vendors, c = 0, e = f.length; e > c; c++)i = f[c], g = g || h.getPropertyCSSValue("-" + i + "-" + b); return g }, e.prototype.animationName = function (a) { var b; try { b = this.vendorCSS(a, "animation-name").cssText } catch (c) { b = d(a).getPropertyValue("animation-name") } return "none" === b ? "" : b }, e.prototype.cacheAnimationName = function (a) { return this.animationNameCache.set(a, this.animationName(a)) }, e.prototype.cachedAnimationName = function (a) { return this.animationNameCache.get(a) }, e.prototype.scrollHandler = function () { return this.scrolled = !0 }, e.prototype.scrollCallback = function () { var a; return !this.scrolled || (this.scrolled = !1, this.boxes = function () { var b, c, d, e; for (d = this.boxes, e = [], b = 0, c = d.length; c > b; b++)a = d[b], a && (this.isVisible(a) ? this.show(a) : e.push(a)); return e }.call(this), this.boxes.length || this.config.live) ? void 0 : this.stop() }, e.prototype.offsetTop = function (a) { for (var b; void 0 === a.offsetTop;)a = a.parentNode; for (b = a.offsetTop; a = a.offsetParent;)b += a.offsetTop; return b }, e.prototype.isVisible = function (a) { var b, c, d, e, f; return c = a.getAttribute("data-wow-offset") || this.config.offset, f = this.config.scrollContainer && this.config.scrollContainer.scrollTop || window.pageYOffset, e = f + Math.min(this.element.clientHeight, this.util().innerHeight()) - c, d = this.offsetTop(a), b = d + a.clientHeight, e >= d && b >= f }, e.prototype.util = function () { return null != this._util ? this._util : this._util = new b }, e.prototype.disabled = function () { return !this.config.mobile && this.util().isMobile(navigator.userAgent) }, e }() }).call(this);
+⋮----
 * Copyright (c) 2025 Alexander Michels;*/(function () { var a, b, c, d, e, f = function (a, b) { return function () { return a.apply(b, arguments) } }, g = [].indexOf || function (a) { for (var b = 0, c = this.length; c > b; b++)if (b in this && this[b] === a) return b; return -1 }; b = function () { function a() { } return a.prototype.extend = function (a, b) { var c, d; for (c in b) d = b[c], null == a[c] && (a[c] = d); return a }, a.prototype.isMobile = function (a) { return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(a) }, a.prototype.createEvent = function (a, b, c, d) { var e; return null == b && (b = !1), null == c && (c = !1), null == d && (d = null), null != document.createEvent ? (e = document.createEvent("CustomEvent"), e.initCustomEvent(a, b, c, d)) : null != document.createEventObject ? (e = document.createEventObject(), e.eventType = a) : e.eventName = a, e }, a.prototype.emitEvent = function (a, b) { return null != a.dispatchEvent ? a.dispatchEvent(b) : b in (null != a) ? a[b]() : "on" + b in (null != a) ? a["on" + b]() : void 0 }, a.prototype.addEvent = function (a, b, c) { return null != a.addEventListener ? a.addEventListener(b, c, !1) : null != a.attachEvent ? a.attachEvent("on" + b, c) : a[b] = c }, a.prototype.removeEvent = function (a, b, c) { return null != a.removeEventListener ? a.removeEventListener(b, c, !1) : null != a.detachEvent ? a.detachEvent("on" + b, c) : delete a[b] }, a.prototype.innerHeight = function () { return "innerHeight" in window ? window.innerHeight : document.documentElement.clientHeight }, a }(), c = this.WeakMap || this.MozWeakMap || (c = function () { function a() { this.keys = [], this.values = [] } return a.prototype.get = function (a) { var b, c, d, e, f; for (f = this.keys, b = d = 0, e = f.length; e > d; b = ++d)if (c = f[b], c === a) return this.values[b] }, a.prototype.set = function (a, b) { var c, d, e, f, g; for (g = this.keys, c = e = 0, f = g.length; f > e; c = ++e)if (d = g[c], d === a) return void (this.values[c] = b); return this.keys.push(a), this.values.push(b) }, a }()), a = this.MutationObserver || this.WebkitMutationObserver || this.MozMutationObserver || (a = function () { function a() { "undefined" != typeof console && null !== console && console.warn("MutationObserver is not supported by your browser."), "undefined" != typeof console && null !== console && console.warn("WOW.js cannot detect dom mutations, please call .sync() after loading new content.") } return a.notSupported = !0, a.prototype.observe = function () { }, a }()), d = this.getComputedStyle || function (a, b) { return this.getPropertyValue = function (b) { var c; return "float" === b && (b = "styleFloat"), e.test(b) && b.replace(e, function (a, b) { return b.toUpperCase() }), (null != (c = a.currentStyle) ? c[b] : void 0) || null }, this }, e = /(\-([a-z]){1})/g, this.WOW = function () { function e(a) { null == a && (a = {}), this.scrollCallback = f(this.scrollCallback, this), this.scrollHandler = f(this.scrollHandler, this), this.resetAnimation = f(this.resetAnimation, this), this.start = f(this.start, this), this.scrolled = !0, this.config = this.util().extend(a, this.defaults), null != a.scrollContainer && (this.config.scrollContainer = document.querySelector(a.scrollContainer)), this.animationNameCache = new c, this.wowEvent = this.util().createEvent(this.config.boxClass) } return e.prototype.defaults = { boxClass: "wow", animateClass: "animated", offset: 0, mobile: !0, live: !0, callback: null, scrollContainer: null }, e.prototype.init = function () { var a; return this.element = window.document.documentElement, "interactive" === (a = document.readyState) || "complete" === a ? this.start() : this.util().addEvent(document, "DOMContentLoaded", this.start), this.finished = [] }, e.prototype.start = function () { var b, c, d, e; if (this.stopped = !1, this.boxes = function () { var a, c, d, e; for (d = this.element.querySelectorAll("." + this.config.boxClass), e = [], a = 0, c = d.length; c > a; a++)b = d[a], e.push(b); return e }.call(this), this.all = function () { var a, c, d, e; for (d = this.boxes, e = [], a = 0, c = d.length; c > a; a++)b = d[a], e.push(b); return e }.call(this), this.boxes.length) if (this.disabled()) this.resetStyle(); else for (e = this.boxes, c = 0, d = e.length; d > c; c++)b = e[c], this.applyStyle(b, !0); return this.disabled() || (this.util().addEvent(this.config.scrollContainer || window, "scroll", this.scrollHandler), this.util().addEvent(window, "resize", this.scrollHandler), this.interval = setInterval(this.scrollCallback, 50)), this.config.live ? new a(function (a) { return function (b) { var c, d, e, f, g; for (g = [], c = 0, d = b.length; d > c; c++)f = b[c], g.push(function () { var a, b, c, d; for (c = f.addedNodes || [], d = [], a = 0, b = c.length; b > a; a++)e = c[a], d.push(this.doSync(e)); return d }.call(a)); return g } }(this)).observe(document.body, { childList: !0, subtree: !0 }) : void 0 }, e.prototype.stop = function () { return this.stopped = !0, this.util().removeEvent(this.config.scrollContainer || window, "scroll", this.scrollHandler), this.util().removeEvent(window, "resize", this.scrollHandler), null != this.interval ? clearInterval(this.interval) : void 0 }, e.prototype.sync = function (b) { return a.notSupported ? this.doSync(this.element) : void 0 }, e.prototype.doSync = function (a) { var b, c, d, e, f; if (null == a && (a = this.element), 1 === a.nodeType) { for (a = a.parentNode || a, e = a.querySelectorAll("." + this.config.boxClass), f = [], c = 0, d = e.length; d > c; c++)b = e[c], g.call(this.all, b) < 0 ? (this.boxes.push(b), this.all.push(b), this.stopped || this.disabled() ? this.resetStyle() : this.applyStyle(b, !0), f.push(this.scrolled = !0)) : f.push(void 0); return f } }, e.prototype.show = function (a) { return this.applyStyle(a), a.className = a.className + " " + this.config.animateClass, null != this.config.callback && this.config.callback(a), this.util().emitEvent(a, this.wowEvent), this.util().addEvent(a, "animationend", this.resetAnimation), this.util().addEvent(a, "oanimationend", this.resetAnimation), this.util().addEvent(a, "webkitAnimationEnd", this.resetAnimation), this.util().addEvent(a, "MSAnimationEnd", this.resetAnimation), a }, e.prototype.applyStyle = function (a, b) { var c, d, e; return d = a.getAttribute("data-wow-duration"), c = a.getAttribute("data-wow-delay"), e = a.getAttribute("data-wow-iteration"), this.animate(function (f) { return function () { return f.customStyle(a, b, d, c, e) } }(this)) }, e.prototype.animate = function () { return "requestAnimationFrame" in window ? function (a) { return window.requestAnimationFrame(a) } : function (a) { return a() } }(), e.prototype.resetStyle = function () { var a, b, c, d, e; for (d = this.boxes, e = [], b = 0, c = d.length; c > b; b++)a = d[b], e.push(a.style.visibility = "visible"); return e }, e.prototype.resetAnimation = function (a) { var b; return a.type.toLowerCase().indexOf("animationend") >= 0 ? (b = a.target || a.srcElement, b.className = b.className.replace(this.config.animateClass, "").trim()) : void 0 }, e.prototype.customStyle = function (a, b, c, d, e) { return b && this.cacheAnimationName(a), a.style.visibility = b ? "hidden" : "visible", c && this.vendorSet(a.style, { animationDuration: c }), d && this.vendorSet(a.style, { animationDelay: d }), e && this.vendorSet(a.style, { animationIterationCount: e }), this.vendorSet(a.style, { animationName: b ? "none" : this.cachedAnimationName(a) }), a }, e.prototype.vendors = ["moz", "webkit"], e.prototype.vendorSet = function (a, b) { var c, d, e, f; d = []; for (c in b) e = b[c], a["" + c] = e, d.push(function () { var b, d, g, h; for (g = this.vendors, h = [], b = 0, d = g.length; d > b; b++)f = g[b], h.push(a["" + f + c.charAt(0).toUpperCase() + c.substr(1)] = e); return h }.call(this)); return d }, e.prototype.vendorCSS = function (a, b) { var c, e, f, g, h, i; for (h = d(a), g = h.getPropertyCSSValue(b), f = this.vendors, c = 0, e = f.length; e > c; c++)i = f[c], g = g || h.getPropertyCSSValue("-" + i + "-" + b); return g }, e.prototype.animationName = function (a) { var b; try { b = this.vendorCSS(a, "animation-name").cssText } catch (c) { b = d(a).getPropertyValue("animation-name") } return "none" === b ? "" : b }, e.prototype.cacheAnimationName = function (a) { return this.animationNameCache.set(a, this.animationName(a)) }, e.prototype.cachedAnimationName = function (a) { return this.animationNameCache.get(a) }, e.prototype.scrollHandler = function () { return this.scrolled = !0 }, e.prototype.scrollCallback = function () { var a; return !this.scrolled || (this.scrolled = !1, this.boxes = function () { var b, c, d, e; for (d = this.boxes, e = [], b = 0, c = d.length; c > b; b++)a = d[b], a && (this.isVisible(a) ? this.show(a) : e.push(a)); return e }.call(this), this.boxes.length || this.config.live) ? void 0 : this.stop() }, e.prototype.offsetTop = function (a) { for (var b; void 0 === a.offsetTop;)a = a.parentNode; for (b = a.offsetTop; a = a.offsetParent;)b += a.offsetTop; return b }, e.prototype.isVisible = function (a) { var b, c, d, e, f; return c = a.getAttribute("data-wow-offset") || this.config.offset, f = this.config.scrollContainer && this.config.scrollContainer.scrollTop || window.pageYOffset, e = f + Math.min(this.element.clientHeight, this.util().innerHeight()) - c, d = this.offsetTop(a), b = d + a.clientHeight, e >= d && b >= f }, e.prototype.util = function () { return null != this._util ? this._util : this._util = new b }, e.prototype.disabled = function () { return !this.config.mobile && this.util().isMobile(navigator.userAgent) }, e }() }).call(this);
 
 ================
@@ -4583,18 +4372,28 @@ File: index.html
 
 <head>
   <meta charset="utf-8" />
-  <title>Fluttera - Die Flutter Agentur fur den deutschen Mittelstand</title>
+  <title>Flutter Agentur Deutschland - Fluttera</title>
   <meta name="description"
-    content="Professionelle Flutter App-Entwicklung in Deutschland. Wir entwickeln hochwertige Apps für iOS, Android und Web mit Flutter. Deutsche Flutter Agentur aus Berlin.">
+    content="Flutter App-Entwicklung in Deutschland. Hochwertige iOS, Android & Web Apps mit Flutter aus Berlin. Professionelle Cross-Platform Entwicklung für Ihr Unternehmen.">
   <meta name="keywords"
-    content="Flutter Agentur, Flutter Entwicklung Deutschland, Flutter App, App Entwicklung, Deutsche App-Agentur, Flutter Berlin, Cross-Platform App">
+    content="Flutter Agentur Deutschland, App Entwicklung Flutter, Cross-Platform Entwicklung, Flutter Berlin, Mobile App Agentur, Flutter Entwickler, Flutter Apps Deutschland">
   <link rel="canonical" href="https://fluttera.de/">
-  <meta property="og:title" content="Fluttera - Die führende Flutter Agentur in Deutschland">
+  <link rel="alternate" hreflang="de" href="https://fluttera.de/"/>
+  <link rel="alternate" hreflang="en" href="https://fluttera.de/?lang=en"/>
+  <link rel="alternate" hreflang="x-default" href="https://fluttera.de/"/>
+  <meta property="og:title" content="Flutter Agentur Deutschland - Fluttera">
   <meta property="og:description"
-    content="Professionelle Flutter App-Entwicklung in Deutschland. Wir entwickeln hochwertige Apps für iOS, Android und Web mit Flutter.">
+    content="Flutter App-Entwicklung in Deutschland. Hochwertige iOS, Android & Web Apps mit Flutter aus Berlin. Professionelle Cross-Platform Entwicklung für Ihr Unternehmen.">
   <meta property="og:url" content="https://fluttera.de/">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Flutter Agentur Deutschland - Fluttera">
+  <meta name="twitter:description" content="Flutter App-Entwicklung in Deutschland. Hochwertige iOS, Android & Web Apps mit Flutter aus Berlin.">
   <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="DE">
+  <meta name="geo.placename" content="Berlin">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -4611,12 +4410,13 @@ File: index.html
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Fluttera",
-    "description": "Flutter App-Entwicklung in Deutschland",
+    "description": "Flutter App-Entwicklung für den deutschen Mittelstand",
     "url": "https://fluttera.de",
     "telephone": "+495242412926",
     "address": {
       "@type": "PostalAddress",
-      "addressCountry": "DE"
+      "addressCountry": "DE",
+      "addressLocality": "Berlin"
     },
     "geo": {
       "@type": "GeoCoordinates",
@@ -4624,9 +4424,11 @@ File: index.html
       "longitude": "13.4050"
     },
     "priceRange": "€€",
-    "openingHours": "Mo-Fr 08:00-16:00",
-    "serviceType": ["Flutter App-Entwicklung", "Cross-Platform App Entwicklung", "Mobile App Entwicklung"],
-    "areaServed": ["Berlin", "München", "Hamburg", "Köln", "Deutschland"]
+    "openingHours": "Mo-Fr 09:00-17:00",
+    "serviceType": ["Flutter App-Entwicklung", "Cross-Platform App Entwicklung", "Mobile App Entwicklung", "iOS App Entwicklung", "Android App Entwicklung", "Web App Entwicklung"],
+    "areaServed": ["Berlin", "München", "Hamburg", "Köln", "Deutschland"],
+    "sameAs": ["https://fluttera.de"],
+    "image": "https://fluttera.de/images/logo.png"
   }
   </script>
   <!-- Translation scripts -->
@@ -4668,7 +4470,7 @@ File: index.html
         <div class="row">
           <div class="col-md-8 col-sm-12">
             <div class="banner-text">
-              <h1 class="white" data-i18n="banner_title">Individuelle App-Entwicklung mit Flutter in Deutschland</h1>
+              <h1 class="white" data-i18n="banner_title">Flutter Agentur für App-Entwicklung in Deutschland</h1>
               <h6 class="white" data-i18n="banner_subtitle">Maßgeschneiderte Flutter Apps für Web, Android und iOS.</h6>
               <p class="banner-text white" data-i18n="banner_text1">Wir helfen Ihnen mit Ihrer kompletten individuellen App-Entwicklung. Durch
                 unsere zahlreichen erfolgreichen Entwicklungsprojekte in ganz Deutschland verfügen wir über das nötige
@@ -4689,7 +4491,7 @@ File: index.html
               data-color="black">
               <div class="screen bg-black">
                 <video class="img-fluid" alt="Flutter App Demo Video" muted="muted" autoplay="" loop=""
-                  style="max-width: 100%; height: 100%">
+                  style="max-width: 100%; height: 100%" preload="none" poster="images/iphone-screen.png">
                   <source src="images/easy_app.mp4" type="video/mp4" />
                 </video>
               </div>
@@ -4808,7 +4610,7 @@ File: index.html
               <div class="device-wrapper col-md-4 col-sm-12">
                 <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
                   <div class="screen bg-black">
-                    <video muted="muted" autoplay="" loop="" style="max-width: 100%; height: 100%">
+                    <video muted="muted" autoplay="" loop="" style="max-width: 100%; height: 100%" preload="none" poster="images/iphone-screen.png" loading="lazy">
                       <source src="images/easy_app.mp4" type="video/mp4" />
                     </video>
                   </div>
@@ -4871,7 +4673,7 @@ File: index.html
             <div class="row">
               <div class="col-md-6">
                 <div class="team-detail">
-                  <img src="images/alex.jpg" class="img-fluid" alt="Profile picture of Alexander Michels" />
+                  <img src="images/alex.jpg" class="img-fluid" alt="Alexander Michels, Flutter Lead Developer bei Fluttera" loading="lazy" />
                   <h4>Alexander Michels</h4>
                   <p data-i18n="about_dev">Flutter Lead Developer</p>
                 </div>
@@ -4880,7 +4682,7 @@ File: index.html
               <div class="col-md-6">
                 <div class="team-detail">
                   <img src="images/patrick.jpeg" class="img-fluid"
-                    alt="Patrick Lutterberg - CEO - Projektkoordinator" />
+                    alt="Patrick Lutterberg, CEO und Projektkoordinator bei Fluttera" loading="lazy" />
                   <h4>Patrick Lutterberg</h4>
                   <p data-i18n="about_coord">Projektkoordinator</p>
                 </div>
@@ -4908,8 +4710,8 @@ File: index.html
               <div class="offset-md-2 col-md-8 col-sm-12">
                 <div class="slider">
                   <div class="slider-item">
-                    <div class="test-img"><img src="images/smart_home.jpg" alt="Smart Home Anbieter" width="157"
-                        height="157"></div>
+                    <div class="test-img"><img src="images/smart_home.jpg" alt="Flutter App für Smart Home Anbieter Projekt" width="157"
+                        height="157" loading="lazy"></div>
                     <div class="test-text">
                       <span class="title"><span data-i18n="project1_title">Smart Home Anbieter</span></span>
                       <span data-i18n="project1_text">Wir haben für einen großen europäischen Smart Home Anbieter mit Hunderttausenden von Kunden eine
@@ -4918,8 +4720,8 @@ File: index.html
                     </div>
                   </div>
                   <div class="slider-item">
-                    <div class="test-img"><img src="images/medtech.jpg" alt="MedTech Unternehmen" width="157"
-                        height="157"></div>
+                    <div class="test-img"><img src="images/medtech.jpg" alt="MedTech App mit Flutter entwickelt" width="157"
+                        height="157" loading="lazy"></div>
                     <div class="test-text">
                       <span class="title"><span data-i18n="project2_title">MedTech Unternehmen</span></span>
                       <span data-i18n="project2_text">Für ein führendes MedTech-Unternehmen haben wir eine verschreibungspflichtige App entwickelt, die
@@ -4929,8 +4731,8 @@ File: index.html
                     </div>
                   </div>
                   <div class="slider-item">
-                    <div class="test-img"><img src="images/buchhaltung.jpg" alt="Inhouse Buchhaltungs-App" width="157"
-                        height="157"></div>
+                    <div class="test-img"><img src="images/buchhaltung.jpg" alt="Buchhaltungs-App für kleine Unternehmen mit Flutter" width="157"
+                        height="157" loading="lazy"></div>
                     <div class="test-text">
                       <span class="title"><span data-i18n="project3_title">Inhouse Buchhaltungs-App</span></span>
                       <span data-i18n="project3_text">Wir haben eine Buchhaltungs-App für kleine Unternehmen entwickelt, die interne Prozesse optimiert
@@ -4938,7 +4740,7 @@ File: index.html
                     </div>
                   </div>
                   <div class="slider-item">
-                    <div class="test-img"><img src="images/notes.jpg" alt="MVP für Start-Up" width="157" height="157">
+                    <div class="test-img"><img src="images/notes.jpg" alt="Flutter MVP für Start-Up Note-Taking App" width="157" height="157" loading="lazy">
                     </div>
                     <div class="test-text">
                       <span class="title"><span data-i18n="project4_title">MVP für Start-Up</span></span>
@@ -5341,6 +5143,49 @@ Legal pages are provided in both languages:
 - English: imprint.html, privacy.html
 
 The footer links automatically update based on the selected language.
+
+================
+File: robots.txt
+================
+User-agent: *
+Allow: /
+Disallow: /impressum.html
+Disallow: /imprint.html
+Disallow: /datenschutz.html
+Disallow: /privacy.html
+
+Sitemap: https://fluttera.de/sitemap.xml
+
+================
+File: sitemap.xml
+================
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://fluttera.de/</loc>
+    <lastmod>2025-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fluttera.de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fluttera.de/?lang=en"/>
+  </url>
+  <url>
+    <loc>https://fluttera.de/impressum.html</loc>
+    <lastmod>2025-03-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fluttera.de/impressum.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fluttera.de/imprint.html"/>
+  </url>
+  <url>
+    <loc>https://fluttera.de/datenschutz.html</loc>
+    <lastmod>2025-03-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fluttera.de/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fluttera.de/privacy.html"/>
+  </url>
+</urlset>
 
 ================
 File: style.css
