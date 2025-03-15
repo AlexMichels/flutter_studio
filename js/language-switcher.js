@@ -149,6 +149,33 @@ document.addEventListener('DOMContentLoaded', function() {
     if (ogDesc) {
       ogDesc.setAttribute('content', translations[currentLanguage].og_description);
     }
+    
+    // Update OG locale
+    const ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (ogLocale) {
+      ogLocale.setAttribute('content', currentLanguage === 'de' ? 'de_DE' : 'en_US');
+    }
+    
+    // Update Twitter tags
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle && translations[currentLanguage].twitter_title) {
+      twitterTitle.setAttribute('content', translations[currentLanguage].twitter_title);
+    }
+    
+    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDesc && translations[currentLanguage].twitter_description) {
+      twitterDesc.setAttribute('content', translations[currentLanguage].twitter_description);
+    }
+    
+    // Update hreflang URLs
+    const hreflangDE = document.querySelector('link[hreflang="de"]');
+    const hreflangEN = document.querySelector('link[hreflang="en"]');
+    
+    if (hreflangDE && hreflangEN) {
+      const baseUrl = window.location.origin + window.location.pathname;
+      hreflangDE.setAttribute('href', baseUrl);
+      hreflangEN.setAttribute('href', baseUrl + '?lang=en');
+    }
   }
   
   // Expose language setter for use in other scripts

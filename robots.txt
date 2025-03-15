@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /impressum.html
+Disallow: /imprint.html
+Disallow: /datenschutz.html
+Disallow: /privacy.html
+
+Sitemap: https://fluttera.de/sitemap.xml

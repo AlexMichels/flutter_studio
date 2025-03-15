@@ -2,11 +2,13 @@
 const translations = {
   en: {
     // Meta information
-    "meta_title": "Fluttera - The Flutter Agency for German SMEs",
-    "meta_description": "Professional Flutter app development in Germany. We develop high-quality apps for iOS, Android and web with Flutter. German Flutter agency from Berlin.",
-    "meta_keywords": "Flutter Agency, Flutter Development Germany, Flutter App, App Development, German App Agency, Flutter Berlin, Cross-Platform App",
-    "og_title": "Fluttera - The leading Flutter agency in Germany",
-    "og_description": "Professional Flutter app development in Germany. We develop high-quality apps for iOS, Android and web with Flutter.",
+    "meta_title": "Flutter Agency Germany - Fluttera",
+    "meta_description": "Professional Flutter app development in Germany. High-quality iOS, Android & web apps with Flutter from Berlin. Custom cross-platform development for your business.",
+    "meta_keywords": "Flutter Agency Germany, Flutter App Development, Cross-Platform Development, Flutter Berlin, Mobile App Agency, Flutter Developers, Flutter Apps Germany",
+    "og_title": "Flutter Agency Germany - Fluttera",
+    "og_description": "Professional Flutter app development in Germany. High-quality iOS, Android & web apps with Flutter from Berlin. Custom cross-platform development for your business.",
+    "twitter_title": "Flutter Agency Germany - Fluttera",
+    "twitter_description": "Professional Flutter app development in Germany. High-quality iOS, Android & web apps with Flutter from Berlin.",
     
     // Navigation
     "nav_home": "Home",
@@ -17,7 +19,7 @@ const translations = {
     "nav_cta": "BOOK APPOINTMENT",
     
     // Banner
-    "banner_title": "Custom App Development with Flutter in Germany",
+    "banner_title": "Flutter Agency for App Development in Germany",
     "banner_subtitle": "Tailored Flutter apps for Web, Android and iOS.",
     "banner_text1": "We help you with your complete custom app development. Thanks to our numerous successful development projects throughout Germany, we have the necessary know-how to implement your ideas quickly and efficiently.",
     "banner_text2": "We support you throughout the entire development process. From design, coding, bug fixing to support after going live. For a project assessment, feel free to book an appointment with us.",
@@ -112,11 +114,13 @@ const translations = {
   },
   de: {
     // Meta information
-    "meta_title": "Fluttera - Die Flutter Agentur fur den deutschen Mittelstand",
-    "meta_description": "Professionelle Flutter App-Entwicklung in Deutschland. Wir entwickeln hochwertige Apps für iOS, Android und Web mit Flutter. Deutsche Flutter Agentur aus Berlin.",
-    "meta_keywords": "Flutter Agentur, Flutter Entwicklung Deutschland, Flutter App, App Entwicklung, Deutsche App-Agentur, Flutter Berlin, Cross-Platform App",
-    "og_title": "Fluttera - Die führende Flutter Agentur in Deutschland",
-    "og_description": "Professionelle Flutter App-Entwicklung in Deutschland. Wir entwickeln hochwertige Apps für iOS, Android und Web mit Flutter.",
+    "meta_title": "Flutter Agentur Deutschland - Fluttera",
+    "meta_description": "Flutter App-Entwicklung in Deutschland. Hochwertige iOS, Android & Web Apps mit Flutter aus Berlin. Professionelle Cross-Platform Entwicklung für Ihr Unternehmen.",
+    "meta_keywords": "Flutter Agentur Deutschland, App Entwicklung Flutter, Cross-Platform Entwicklung, Flutter Berlin, Mobile App Agentur, Flutter Entwickler, Flutter Apps Deutschland",
+    "og_title": "Flutter Agentur Deutschland - Fluttera",
+    "og_description": "Flutter App-Entwicklung in Deutschland. Hochwertige iOS, Android & Web Apps mit Flutter aus Berlin. Professionelle Cross-Platform Entwicklung für Ihr Unternehmen.",
+    "twitter_title": "Flutter Agentur Deutschland - Fluttera",
+    "twitter_description": "Flutter App-Entwicklung in Deutschland. Hochwertige iOS, Android & Web Apps mit Flutter aus Berlin.",
     
     // Navigation
     "nav_home": "Startseite",
@@ -127,7 +131,7 @@ const translations = {
     "nav_cta": "TERMIN VEREINBAREN",
     
     // Banner
-    "banner_title": "Individuelle App-Entwicklung mit Flutter in Deutschland",
+    "banner_title": "Flutter Agentur für App-Entwicklung in Deutschland",
     "banner_subtitle": "Maßgeschneiderte Flutter Apps für Web, Android und iOS.",
     "banner_text1": "Wir helfen Ihnen mit Ihrer kompletten individuellen App-Entwicklung. Durch unsere zahlreichen erfolgreichen Entwicklungsprojekte in ganz Deutschland verfügen wir über das nötige Know-how, Ihre Ideen schnell und effizient umzusetzen.",
     "banner_text2": "Wir unterstützen Sie im gesamten Entwicklungsprozess. Vom Design, Coding, Bug-Fixing bis hin zum Support nach der Live-Schaltung. Für eine Projekteinschätzung können Sie gerne unverbindlich einen Termin mit uns buchen.",
