@@ -9,15 +9,15 @@ const translations = {
     "og_description": "Professional Flutter app development in Germany. High-quality iOS, Android & web apps with Flutter from Berlin. Custom cross-platform development for your business.",
     "twitter_title": "Flutter Agency Germany - Fluttera",
     "twitter_description": "Professional Flutter app development in Germany. High-quality iOS, Android & web apps with Flutter from Berlin.",
-    
+
     // Navigation
     "nav_home": "Home",
-    "nav_services": "Services",
+    "nav_services": "Blog",
     "nav_about": "About Us",
     "nav_faq": "FAQ",
     "nav_contact": "Contact",
     "nav_cta": "BOOK APPOINTMENT",
-    
+
     // Banner
     "banner_title": "Flutter Agency for App Development in Germany",
     "banner_subtitle": "Tailored Flutter apps for Web, Android and iOS.",
@@ -25,7 +25,7 @@ const translations = {
     "banner_text2": "We support you throughout the entire development process. From design, coding, bug fixing to support after going live. For a project assessment, feel free to book an appointment with us.",
     "banner_contact": "Contact",
     "banner_call": "Call",
-    
+
     // Development Process
     "process_title": "Typical Development Process",
     "process_subtitle": "We are experts in Flutter app development and offer tailored solutions for all your requirements.",
@@ -36,10 +36,10 @@ const translations = {
     "process_box3_title": "Release, Bugfixes & User Analytics",
     "process_box3_text": "After release, we take care of bug fixes and conduct comprehensive user analytics to continuously improve the app.",
     "process_cta": "Book Appointment",
-    
+
     // Video Section
     "video_text": "Now reach a wider audience with cross-platform applications that run smoothly on both iOS and Android while providing a consistent user experience.",
-    
+
     // Features Section
     "features_title": "Flutter helps to move faster",
     "features_subtitle": "We look forward to working with you on your next successful mobile project. Contact us to receive a non-binding offer or to learn more about our service.",
@@ -55,13 +55,13 @@ const translations = {
     "feature5_text": "Flutter helps reduce costs by requiring only one team for development.",
     "feature6_title": "High Performance",
     "feature6_text": "Flutter apps offer native performance and smooth user experiences.",
-    
+
     // About Us Section
     "about_title": "About Us",
     "about_text": "With a dynamic team of 4 highly qualified experts, including our CEO Patrick and CTO & Lead Developer Alex as well as two software developers, we have more than 15 years of combined experience.<br><br>We have already supported several large projects and achieved results of over 21,000 positive app ratings for projects. Trust our expertise to successfully bring your app to market.",
     "about_dev": "Flutter Lead Developer",
     "about_coord": "Project Coordinator",
-    
+
     // Project Experience Section
     "project_title": "Project Experiences",
     "project_subtitle": "Take a look at some of our successfully completed projects.",
@@ -73,7 +73,7 @@ const translations = {
     "project3_text": "We developed an accounting app for small businesses that optimizes internal processes and enables simple financial management.",
     "project4_title": "MVP for Start-Up",
     "project4_text": "For a start-up, we developed an MVP (Minimum Viable Product) that includes a note-taking app.",
-    
+
     // FAQ Section
     "faq_title": "Frequently Asked Questions",
     "faq_subtitle": "Here you'll find answers to some frequently asked questions about our Flutter services.",
@@ -93,7 +93,7 @@ const translations = {
     "faq7_answer": "Flutter offers a wide range of integrations and plugins that support various functions, including Firebase, Google Maps, payments, authentication, and more. These plugins can be easily integrated into your app to provide additional functionality.",
     "faq8_question": "What does the development process at your Flutter agency look like?",
     "faq8_answer": "Our development process includes requirements analysis, design, development, testing, and deployment. We work closely with our clients to ensure their requirements are met and the app exceeds their expectations.",
-    
+
     // Contact Section
     "contact_title": "Contact Us",
     "contact_subtitle": "We look forward to hearing from you. Please fill out the form below, and we will get back to you as soon as possible.",
@@ -105,7 +105,7 @@ const translations = {
     "contact_phone": "Phone",
     "contact_hours": "Opening Hours",
     "contact_hours_time": "Mon-Fri 9.00 - 17.00",
-    
+
     // Footer
     "footer_copyright": "© Fluttera 2023. Your Flutter Agency.",
     "footer_imprint": "Imprint",
@@ -121,15 +121,15 @@ const translations = {
     "og_description": "Flutter App-Entwicklung in Deutschland. Hochwertige iOS, Android & Web Apps mit Flutter aus Berlin. Professionelle Cross-Platform Entwicklung für Ihr Unternehmen.",
     "twitter_title": "Flutter Agentur Deutschland - Fluttera",
     "twitter_description": "Flutter App-Entwicklung in Deutschland. Hochwertige iOS, Android & Web Apps mit Flutter aus Berlin.",
-    
+
     // Navigation
     "nav_home": "Startseite",
-    "nav_services": "Dienstleistungen",
+    "nav_services": "Blog",
     "nav_about": "Über uns",
     "nav_faq": "FAQ",
     "nav_contact": "Kontakt",
     "nav_cta": "TERMIN VEREINBAREN",
-    
+
     // Banner
     "banner_title": "Flutter Agentur für App-Entwicklung in Deutschland",
     "banner_subtitle": "Maßgeschneiderte Flutter Apps für Web, Android und iOS.",
@@ -137,7 +137,7 @@ const translations = {
     "banner_text2": "Wir unterstützen Sie im gesamten Entwicklungsprozess. Vom Design, Coding, Bug-Fixing bis hin zum Support nach der Live-Schaltung. Für eine Projekteinschätzung können Sie gerne unverbindlich einen Termin mit uns buchen.",
     "banner_contact": "Kontakt",
     "banner_call": "Anrufen",
-    
+
     // Development Process
     "process_title": "Typischer Entwicklungsablauf",
     "process_subtitle": "Wir sind Experten in der Entwicklung von Flutter-Apps und bieten maßgeschneiderte Lösungen für alle Ihre Anforderungen.",
@@ -148,10 +148,10 @@ const translations = {
     "process_box3_title": "Release, Bugfixes & Nutzeranalysen",
     "process_box3_text": "Nach dem Release kümmern wir uns um Bugfixes und führen umfassende Nutzeranalysen durch, um die App kontinuierlich zu verbessern.",
     "process_cta": "Termin Buchen",
-    
+
     // Video Section
     "video_text": "Jetzt Erreichen Sie ein breiteres Publikum mit plattformübergreifenden Anwendungen, die sowohl auf iOS als auch auf Android reibungslos funktionieren und dabei eine konsistente Benutzererfahrung bieten.",
-    
+
     // Features Section
     "features_title": "Flutter hilft, schneller voranzukommen",
     "features_subtitle": "Wir freuen uns darauf, mit Ihnen an Ihrem nächsten erfolgreichen mobilen Projekt zu arbeiten. Nehmen Sie Kontakt mit uns auf, um ein unverbindliches Angebot zu erhalten oder mehr über unseren Service zu erfahren.",
@@ -167,13 +167,13 @@ const translations = {
     "feature5_text": "Flutter hilft, Kosten zu senken, indem nur ein Team für die Entwicklung benötigt wird.",
     "feature6_title": "Hohe Performance",
     "feature6_text": "Flutter-Apps bieten native Performance und flüssige Benutzererlebnisse.",
-    
+
     // About Us Section
     "about_title": "Über uns",
     "about_text": "Mit einem dynamischen Team bestehend aus 4 hochqualifizierten Experten, darunter unser CEO Patrick und CTO & Lead Developer Alex sowie zwei Softwareentwicklern, verfügen wir über mehr als 15 Jahre kombinierte Erfahrung.<br><br>Wir haben bereits mehrere große Projekte betreut und Ergebnisse von über 21.000 positiven App-Bewertungen bei Projekten erzielt. Vertrauen Sie auf unsere Fachkompetenz, um Ihre App erfolgreich auf dem Markt zu bringen.",
     "about_dev": "Flutter Lead Developer",
     "about_coord": "Projektkoordinator",
-    
+
     // Project Experience Section
     "project_title": "Projekt-Erfahrungen",
     "project_subtitle": "Werfen Sie einen Blick auf einige unserer erfolgreich abgeschlossenen Projekte.",
@@ -185,7 +185,7 @@ const translations = {
     "project3_text": "Wir haben eine Buchhaltungs-App für kleine Unternehmen entwickelt, die interne Prozesse optimiert und eine einfache Verwaltung der Finanzen ermöglicht.",
     "project4_title": "MVP für Start-Up",
     "project4_text": "Für ein Start-Up haben wir einen MVP (Minimum Viable Product) entwickelt, der eine Note-Taking-App umfasst.",
-    
+
     // FAQ Section
     "faq_title": "Häufig gestellte Fragen",
     "faq_subtitle": "Hier finden Sie Antworten auf einige häufig gestellte Fragen zu unseren Flutter-Dienstleistungen.",
@@ -205,7 +205,7 @@ const translations = {
     "faq7_answer": "Flutter bietet eine breite Palette an Integrationen und Plugins, die verschiedene Funktionen unterstützen, darunter Firebase, Google Maps, Zahlungen, Authentifizierung und mehr. Diese Plugins können leicht in Ihre App integriert werden, um zusätzliche Funktionalitäten bereitzustellen.",
     "faq8_question": "Wie sieht der Entwicklungsprozess bei Ihrer Flutter-Agentur aus?",
     "faq8_answer": "Unser Entwicklungsprozess umfasst die Anforderungsanalyse, Design, Entwicklung, Testen und Bereitstellung. Wir arbeiten eng mit unseren Kunden zusammen, um sicherzustellen, dass ihre Anforderungen erfüllt werden und die App ihre Erwartungen übertrifft.",
-    
+
     // Contact Section
     "contact_title": "Kontaktieren Sie uns",
     "contact_subtitle": "Wir freuen uns darauf, von Ihnen zu hören. Bitte füllen Sie das untenstehende Formular aus, und wir werden uns so schnell wie möglich bei Ihnen melden.",
@@ -217,7 +217,7 @@ const translations = {
     "contact_phone": "Telefon",
     "contact_hours": "Öffnungszeiten",
     "contact_hours_time": "Mo-Fr 9.00 - 17.00 Uhr",
-    
+
     // Footer
     "footer_copyright": "© Fluttera 2023. Ihre Flutter Agentur.",
     "footer_imprint": "Impressum",
