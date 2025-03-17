@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Food Ninja Blog</title>
+    <link>https://foodninja.com</link>
+    <description>Exploring food adventures and culinary wisdom around the world</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Mar 2025 06:55:58 GMT</lastBuildDate>
+    <atom:link href="https://foodninja.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What I Learned About Life and Food Backpacking Around Greece</title>
+      <link>https://foodninja.com/blog/greece-backpacking</link>
+      <description><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices dui diam arcu pharetra at laoreet pellentesque. Imperdiet sit ut ornare nulla risus id fames nascetur urna. Eros in neque tincidunt.]]></description>
+      <pubDate>Sat, 31 Jul 2021 17:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://foodninja.com/blog/greece-backpacking</guid>
+      <author>George Costanza</author>
+    </item>
+  </channel>
+</rss>

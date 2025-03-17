@@ -1,0 +1,20 @@
+{
+  "name": "food-ninja-blog",
+  "version": "1.0.0",
+  "description": "A scalable, SEO-friendly food blog",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js && node copy-assets.js && node generate-sitemap.js && node generate-rss.js",
+    "dev": "nodemon build.js & nodemon copy-assets.js & live-server public"
+  },
+  "dependencies": {
+    "front-matter": "^4.0.2",
+    "handlebars": "^4.7.7",
+    "marked": "^4.0.12",
+    "mkdirp": "^1.0.4"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "nodemon": "^2.0.15"
+  }
+}

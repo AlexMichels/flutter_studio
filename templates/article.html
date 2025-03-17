@@ -1,0 +1,63 @@
+{{> header}}
+
+<!-- Post Header -->
+<section class="post-header">
+    <div class="post-category">
+        <span>{{category}}</span>
+    </div>
+    <h1 class="post-title">{{title}}</h1>
+    <div class="post-meta">{{published_date}} • {{read_time}} min read</div>
+    <img src="{{featured_image}}" alt="{{featured_image_alt}}" class="post-thumbnail">
+    <div class="author">
+        <img src="{{author_image}}" alt="{{author_name}}">
+        <span class="author-name">{{author_name}}</span>
+    </div>
+</section>
+
+<!-- Main Content -->
+<div class="main-content">
+    <!-- Article Content -->
+    <article class="article-content">
+        <p class="article-intro">{{article_intro}}</p>
+
+        {{#if has_table_of_contents}}
+        <div class="table-of-contents">
+            <h3 class="toc-title">In this article</h3>
+            <ul class="toc-links">
+                {{#each toc_items}}
+                <li><a href="#{{id}}">{{number}}. {{title}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/if}}
+
+        {{article_content}}
+
+        <!-- About Author -->
+        <div class="about-author">
+            <img src="{{author_image}}" alt="{{author_name}}">
+            <div class="author-info">
+                <h3>Written by {{author_name}}</h3>
+                <p>{{author_bio}}</p>
+            </div>
+        </div>
+
+        <!-- Related Articles -->
+        <div class="related-articles">
+            <h2>Keep reading</h2>
+            <div class="related-articles-grid">
+                {{#each related_articles}}
+                <div class="related-article">
+                    <img src="{{image}}" alt="{{title}}">
+                    <h3>{{title}}</h3>
+                    <p>{{excerpt}}</p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </article>
+
+    {{> sidebar}}
+</div>
+
+{{> footer}}

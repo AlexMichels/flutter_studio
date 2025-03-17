@@ -1,0 +1,32 @@
+<!-- Sidebar -->
+<aside class="sidebar">
+    <!-- Popular Posts -->
+    <div class="popular-posts">
+        <h3>POPULAR POSTS</h3>
+        <ul>
+            {{#each popular_posts}}
+            <li><a href="{{url}}">{{title}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <!-- Recent Posts -->
+    <div class="recent-posts">
+        <h3>Recent Posts</h3>
+        <ul>
+            {{#each recent_posts}}
+            <li><a href="{{url}}">{{title}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="newsletter">
+        <h3>Subscribe To Our Newsletter</h3>
+        <p>Get weekly food news, articles, and videos delivered to your inbox.</p>
+        <form id="newsletter-form" action="/subscribe" method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</aside>

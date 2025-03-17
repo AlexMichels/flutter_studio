@@ -1,0 +1,51 @@
+{
+  "site": {
+    "title": "Food Ninja Blog",
+    "description": "Exploring food adventures and culinary wisdom around the world",
+    "url": "https://foodninja.com"
+  },
+  "popular_posts": [
+    {
+      "title": "How To Have Your Cake and Eat It Too: The Way of The Chicken Man",
+      "url": "/blog/cake-and-chicken-man"
+    },
+    {
+      "title": "My Grandma's 30-year-old Recipe",
+      "url": "/blog/grandmas-recipe"
+    },
+    {
+      "title": "What I learned about cooking from Ratatoulie",
+      "url": "/blog/cooking-from-ratatouille"
+    }
+  ],
+  "recent_posts": [
+    {
+      "title": "What I Learned About Life and Food Backpacking Around Greece",
+      "url": "/blog/greece-backpacking"
+    },
+    {
+      "title": "How To Have Your Cake and Eat It Too: The Way of The Chicken Man",
+      "url": "/blog/cake-and-chicken-man"
+    },
+    {
+      "title": "My Grandma's 30-year-old Recipe",
+      "url": "/blog/grandmas-recipe"
+    }
+  ],
+  "related_articles": {
+    "greece-backpacking": [
+      {
+        "title": "Why you don't need more than 3 pieces of clothing",
+        "image": "/assets/images/related_image_1.png",
+        "excerpt": "Et vitae, mollis euismod lobortis blandit amet sed amet. Amet ut amet nisl tortor arcu non id nulla mauris neque nisl magna.",
+        "url": "/blog/minimalist-clothing"
+      },
+      {
+        "title": "Why you should cook with your family together everyday",
+        "image": "/assets/images/related_image_2.png",
+        "excerpt": "Rutrum aliquet eros semper nunc. In adipiscing augue sagittis, fermentum donec nunc lacinia. Risus in egestas in orci quam.",
+        "url": "/blog/family-cooking"
+      }
+    ]
+  }
+}
