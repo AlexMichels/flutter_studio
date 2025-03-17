@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scalable Flutter Development - Best Practices for Project Structure</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo-container">
+        <h1>Flutter Architecture</h1>
+      </div>
+    </div>
+  </header>
+
+  <main class="content-container">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">Scalable Flutter Development - Best Practices for Project Structure</h1>
+        <h2 class="post-subtitle">Learn how to structure your Flutter projects for scalability, maintainability, and
+          developer productivity with feature-first architecture and unidirectional data flow.</h2>
+        <div class="post-meta">
+          <div class="author-info">
+            <img src="https://avatars.githubusercontent.com/u/14101776?v=4" alt="Flutter Developer"
+              class="author-image">
+            <div class="author-details">
+              <div class="author-name">Flutter Engineering</div>
+              <div class="post-details">10 min read · Updated recently</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="post-content">
+        <h1>Recommended Project Structure</h1>
+
+        <blockquote>
+          <p>That is a great way to structure the codebase</p>
+        </blockquote>
+
+        <figure class="image-container">
+          <img src="images/image-2.png" alt="Project Structure" class="article-image">
+        </figure>
+
+        <h1>What is a Feature?</h1>
+
+        <p>When we focus on the UI, we're likely to think of a feature <strong>as a single page</strong> or screen in
+          the app.</p>
+
+        <p>That is wrong.</p>
+
+        <p>A Feature is not about what the user <strong>sees</strong>, but what the user <strong>does</strong>:</p>
+
+        <ul>
+          <li>authenticate</li>
+          <li>manage the shopping cart</li>
+          <li>checkout</li>
+          <li>view all past orders</li>
+          <li>leave a review</li>
+        </ul>
+
+        <p>Features should not depend on each other. They are built like a plugin.</p>
+
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/-IqHOFh7yrk"
+            title="Project Structure Overview" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+
+        <h1>Feature Folder Structure</h1>
+
+        <blockquote>
+          <p>Replace "example" with your Feature name.</p>
+        </blockquote>
+
+        <figure class="image-container">
+          <img src="images/image.png" alt="Feature Folder Structure" class="article-image">
+        </figure>
+
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/HQoJH3s9hDs"
+            title="How to Structure Features" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+
+        <h1>Unidirectional Data Flow</h1>
+
+        <p>Unidirectional data flow is a pattern where data moves in a single direction through your app: from data
+          sources (repositories) → business logic (services) → state management (controllers) → UI.</p>
+
+        <h2>Repository</h2>
+        <p>Handles API calls, remote data connections with servers, local persistence etc.</p>
+
+        <h2>Service</h2>
+        <p>Can use repository to fetch, write or listen. Services can use one or more repositories.</p>
+
+        <h2>Controller</h2>
+        <p>Are handling the state of the UI. Controller can use Services.</p>
+
+        <h2>Widgets</h2>
+        <p>Should not have business logic or state logic and should be easy to understand and around 100-120 lines of
+          code long. Always use stateless widgets instead of helper methods.</p>
+
+        <pre><code class="language-dart">// Example of a simple stateless widget instead of a helper method
+class UserAvatar extends StatelessWidget {
+  const UserAvatar({
+    required this.imageUrl,
+    required this.size,
+    super.key,
+  });
+
+  final String imageUrl;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(size / 2),
+      child: Image.network(
+        imageUrl,
+        width: size,
+        height: size,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+}</code></pre>
+
+        <h1>Riverpod</h1>
+
+        <p>Riverpod serves as the glue between our layers. We use regular Providers for repositories and services.
+          Services can also leverage StreamProviders and FutureProviders. The controller is implemented as an
+          (Async)Notifier. The UI typically watches the controller's state and uses its methods. Additionally, the UI
+          can directly watch StreamProviders if doing so reduces boilerplate code.</p>
+
+       <pre><code class="language-dart">// Example of a controller with Riverpod
+class CartController extends Notifier<CartState> {
+  @override
+  CartState build() {
+    return const CartState(
+      items: [],
+      isLoading: false,
+    );
+  }
+
+  Future<void> addItem(Product product) async {
+    state = state.copyWith(isLoading: true);
+    
+    try {
+      // Use service to add item
+      final updatedCart = await ref.read(cartServiceProvider).addItem(product);
+      state = state.copyWith(
+        items: updatedCart.items,
+        isLoading: false,
+      );
+    } catch (e) {
+      state = state.copyWith(
+        isLoading: false,
+        error: 'Failed to add item: $e',
+      );
+    }
+  }
+}</code></pre>
+
+        <h1>Error Handling</h1>
+
+        <p>We generally use try-catch blocks in the Service Layer to manage errors. Where appropriate, we can also use
+          AsyncValue.guard.</p>
+
+        <p>In the catch block, we utilize the logging class to provide useful feedback and track errors along with their
+          stack traces.</p>
+
+        <p>The logging system is integrated with Sentry / Crashlytics, which helps understanding and fixing bugs in
+          production and during QC testing.</p>
+
+        <p>We don't need to log unimportant exceptions like missing internet connections or incorrect password
+          inputs—only those relevant to debugging should be tracked.</p>
+
+        <pre><code class="language-dart">// Example of error handling in a service
+class AuthService {
+  AuthService(this._log, this._authRepository);
+
+  final TmLogger _log;
+  final AuthRepository _authRepository;
+
+  Future<Result<User>> login(String email, String password) async {
+    try {
+      final user = await _authRepository.login(email, password);
+      return Result.success(user);
+    } catch (e, stackTrace) {
+      _log.info('Login failed', e, stackTrace);
+      return Result.failure(
+        e is NetworkException 
+          ? AuthError.network() 
+          : AuthError.invalidCredentials(),
+      );
+    }
+  }
+}</code></pre>
+
+        <h1>Learn More</h1>
+
+        <p>I recommend <a href="https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/"
+            target="_blank">this article</a> for more details on Flutter architecture with Riverpod.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <p>© 2023 Flutter Engineering. All Rights Reserved</p>
+        <p>Best practices for building maintainable Flutter applications.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
