@@ -16,14 +16,7 @@ const { nav } = t
   <div class="nav__inner">
     <div class="nav__pill">
       <a class="nav__brand" href={homeHref} aria-label="Fluttera Home">
-        <svg class="nav__brand-mark" viewBox="0 0 220 220" width="22" height="22" aria-hidden="true" fill="currentColor">
-          <g transform="translate(22 28)">
-            <path d="M14 43 C14 20 32 4 55 4 H164 L139 29 C126 42 111 49 92 49 H14 Z"/>
-            <path d="M28 78 C28 64 39 53 53 53 H138 L116 75 C104 87 92 92 76 92 H28 Z"/>
-            <path d="M28 117 C28 105 37 96 49 96 H103 L83 121 C70 137 57 151 28 168 Z"/>
-          </g>
-        </svg>
-        Fluttera
+        <img src="/assets/img/fluttera-primary-logo.svg" alt="Fluttera" width="87" height="24" />
       </a>
 
       <nav class="nav__menu" id="site-menu" data-menu aria-label={nav.menuLabel}>
@@ -141,20 +134,12 @@ const { nav } = t
   .nav__brand {
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 1.2rem;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    text-decoration: none;
     line-height: 1;
   }
 
-  .nav__brand-mark {
-    width: 22px;
-    height: 22px;
-    flex: none;
+  .nav__brand img {
+    height: 24px;
+    width: auto;
   }
 
   .nav__menu {
