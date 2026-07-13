@@ -62,7 +62,7 @@ const small = services.cards.filter((c: any) => c.size === 'small')
   .svc--lg {
     grid-column: span 3;
     min-height: 18rem;
-    background: #f4f7fb;
+    background: var(--paper);
     color: var(--ink);
     border: 0;
   }
@@ -99,6 +99,11 @@ const small = services.cards.filter((c: any) => c.size === 'small')
     padding-top: 1.6rem;
     color: var(--blue);
     font-size: 0.6875rem;
+  }
+
+  /* Blue-on-blue otherwise: the first card carries the spot-blue background */
+  .svc--lg:first-child .svc__tags {
+    color: var(--blue-wash);
   }
 
   @media (max-width: 63.99rem) {

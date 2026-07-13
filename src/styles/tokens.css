@@ -1,38 +1,43 @@
 /* ————————————————————————————————————————————————
-   Fluttera design tokens — "printed matter" system:
-   warm paper, ink, one royal-blue spot colour, mono marginalia.
+   Fluttera design tokens — brand kit on printed matter:
+   silver-tinted paper, slate ink, Electric-Blue spot colour,
+   Deep-Blue dark sections, gold accents on dark, mono marginalia.
+   Kit palette: Deep Blue #0A1B3D · Electric Blue #1E5BFF · Gold #D4AF37
+   · Silver #C0C2C7 · Slate #111827 · Steel #1F2937.
    ———————————————————————————————————————————————— */
 
 :root {
   /* Light-only site: forbid browser auto-darkening (Android Chrome dark theme etc.) */
   color-scheme: only light;
 
-  /* Colour — two-colour print system: paper, ink, one Reflex-blue spot colour */
+  /* Colour — brand-kit hexes or color-mixes of them only */
   --paper: #f4f7fb;
   --paper-warm: #ffffff;
-  --ink: #222326;
-  --ink-soft: #7d8794;
-  --blue: #2854bd;
-  --blue-deep: #1d46aa;
-  --blue-wash: #dce8ff;
-  --midnight: #050505;
-  --midnight-deep: #000000;
-  --paper-on-dark: #f7f8fa;
-  --soft-on-dark: rgba(247, 248, 250, 0.68);
-  --blue-on-dark: #d9e6ff;
-  --hairline: #aeb3b8;
-  --hairline-on-dark: #2c2c2c;
+  --ink: #111827; /* Slate */
+  --ink-soft: color-mix(in srgb, #111827 58%, #c0c2c7);
+  --blue: #1e5bff; /* Electric Blue */
+  --blue-deep: color-mix(in srgb, #1e5bff 62%, #0a1b3d);
+  --blue-wash: color-mix(in srgb, #1e5bff 12%, #ffffff);
+  --midnight: #0a1b3d; /* Deep Blue — dark sections */
+  --midnight-deep: #111827; /* Slate — footer */
+  --paper-on-dark: #f7f8fb;
+  --soft-on-dark: rgba(192, 194, 199, 0.78); /* Silver */
+  --blue-on-dark: color-mix(in srgb, #1e5bff 55%, #ffffff);
+  --hairline: #c0c2c7; /* Silver */
+  --hairline-on-dark: #1f2937; /* Steel */
   --green: #2e7d5b;
+  --gold: #d4af37; /* dark surfaces + decorative accents only (fails WCAG on paper) */
+  --silver: #c0c2c7;
 
   /* Typography — three voices, strictly separated jobs.
-     Display: Anton (free stand-in for ploy.ai's commercial FK Screamer) —
-     single weight 400, condensed, meant for uppercase settings. */
-  --font-display: 'Anton', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
-  --font-body: 'Geist', 'Helvetica Neue', Arial, sans-serif;
+     Display: Orbitron (brand kit) — wide geometric face, variable 400–900;
+     sentence case at large sizes, letter-spaced for small labels. */
+  --font-display: 'Orbitron', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'IBM Plex Mono', 'SF Mono', Menlo, Consolas, monospace;
 
-  --text-hero: clamp(3.5rem, 10vw, 8.8rem);
-  --text-h2: clamp(2.35rem, 4.6vw, 4rem);
+  --text-hero: clamp(2.4rem, 6.8vw, 6rem);
+  --text-h2: clamp(2rem, 3.8vw, 3.2rem);
   --text-h3: clamp(1.25rem, 2vw, 1.6rem);
   --text-lead: clamp(1.06rem, 1.4vw, 1.25rem);
   --text-body: 1.0625rem;
@@ -48,8 +53,8 @@
   /* Shape — print-sharp corners, flat offset shadows (no blur) */
   --radius-s: 14px;
   --radius-m: 22px;
-  --shadow-offset: 0 18px 45px rgba(30, 45, 70, 0.12);
-  --shadow-offset-blue: 0 18px 45px rgba(39, 67, 205, 0.18);
+  --shadow-offset: 0 18px 45px rgba(10, 27, 61, 0.12);
+  --shadow-offset-blue: 0 18px 45px rgba(30, 91, 255, 0.18);
 
   /* Motion — one easing family */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);

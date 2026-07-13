@@ -267,7 +267,7 @@ export default {
       { href: '/datenschutz.html', label: 'Privacy policy' },
     ],
     copyright: '© 2026 Fluttera · Alexander Michels',
-    colophon: 'Statically built, hand-set in Anton, Geist & IBM Plex Mono.',
+    colophon: 'Statically built, hand-set in Orbitron, Inter & IBM Plex Mono.',
     backToTop: 'Back to top',
   },
   legalPage: {

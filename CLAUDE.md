@@ -9,10 +9,12 @@ One-page marketing website for Fluttera (fluttera.de) — the Flutter freelance 
 - Deploy: `.github/workflows/deploy.yml` builds and deploys to GitHub Pages on push to `main`. GitHub Pages must be set to "GitHub Actions" source. `public/CNAME` carries the custom domain.
 - Legacy routes under `/blog/` and `/learn/` are static files in `public/`. `/imprint.html`, `/privacy.html`, and `/?lang=en` remain compatibility routes; keep them working during future changes.
 
-# Design system ("printed matter")
-- Tokens in `src/styles/tokens.css`: warm paper #F5F3EC, ink #191A1E, ONE spot colour Reflex blue #2743CD, midnight #101430 dark sections, hairline rules, print-sharp 3px radii, flat offset shadows (no blur), one easing family.
-- Type: Anton (display — condensed uppercase, the free stand-in for ploy.ai's commercial FK Screamer; single weight 400, never synthesize bold), Geist (body, variable), IBM Plex Mono (marginalia/eyebrows). Self-hosted in `public/fonts` — no font CDNs.
-- Signature motifs (ploy.ai-inspired): nav is quiet ink-on-paper at the top and condenses into a floating frosted glass pill on scroll; hero media sits in an inset rounded frame on paper; mono datasheet rows on case cards. No gradients, no emoji icons.
+# Design system (brand kit on printed matter)
+- Brand kit palette (source of truth, do not "fix" back to the old Reflex-blue scheme): Deep Blue #0A1B3D (dark sections), Electric Blue #1E5BFF (spot colour), Gold #D4AF37 (accents on DARK surfaces only — fails WCAG on paper), Silver #C0C2C7 (hairlines, on-dark text), Slate #111827 (ink, footer), Steel #1F2937 (on-dark hairlines). Light paper #f4f7fb stays. Tokens in `src/styles/tokens.css` — kit hexes or color-mix() of them only.
+- Logo: three-stripe silver-gradient F mark (`public/assets/img/fluttera-icon.svg`, full lockup `fluttera-logo.svg`). Inlined as currentColor in Nav, silver gradient in Footer (dark); favicon/apple-touch-icon = navy tile + silver mark. Silver gradient is invisible on light backgrounds — recolor there.
+- Type: Orbitron (display — wide geometric brand face, variable 400–900, sentence case at large sizes, weight 600 for h1/h2), Inter (body, variable), IBM Plex Mono (marginalia/eyebrows). Self-hosted in `public/fonts` — no font CDNs.
+- Signature motifs (ploy.ai-inspired): nav is quiet ink-on-paper at the top and condenses into a floating frosted glass pill on scroll; hero media sits in an inset rounded frame on paper; mono datasheet rows on case cards. No emoji icons; the only gradient is the logo's silver metal.
+- Raster brand assets (OG images, apple-touch-icon, favicon-32.png) are generated — edit + run `node scripts/generate-og.mjs`, never hand-edit the PNGs.
 - Motion: IntersectionObserver reveals + count-ups in `src/scripts/main.js` (vanilla, small). Full prefers-reduced-motion support; content must stay visible without JS.
 
 # Conversion path

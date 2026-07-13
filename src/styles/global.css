@@ -61,16 +61,14 @@ p {
   text-wrap: pretty;
 }
 
-/* Display headlines: Anton is a single-weight (400) condensed face designed
-   for tight uppercase settings — never synthesize bolder weights. */
+/* Display headlines: Orbitron is a wide geometric face (brand kit) — set in
+   sentence case at large sizes; uppercase is reserved for small labels. */
 h1,
 h2 {
   font-family: var(--font-display);
-  font-weight: 400;
-  /* Anton's umlauts sit above cap height — keep air between lines */
-  line-height: 1.04;
-  letter-spacing: 0.005em;
-  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
   text-wrap: balance;
 }
 
@@ -128,7 +126,7 @@ h2 em {
 
 [data-theme='dark'] h1 em,
 [data-theme='dark'] h2 em {
-  color: var(--blue-on-dark);
+  color: var(--gold);
 }
 
 /* Drawn underline variant (hero only): animates in via .revealed */
@@ -201,7 +199,7 @@ html:not(.js) .em-draw em,
 }
 
 [data-theme='dark'] .folio__name {
-  color: var(--soft-on-dark);
+  color: var(--gold);
 }
 
 .folio__mark {
@@ -269,7 +267,7 @@ html:not(.js) .em-draw em,
 
 .btn--ghost {
   border-color: var(--hairline);
-  background: #fff;
+  background: var(--paper-warm);
   color: var(--ink);
 }
 

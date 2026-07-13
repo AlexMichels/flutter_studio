@@ -12,7 +12,24 @@ const { footer } = t
   <div class="container">
     <div class="footer__top">
       <div class="footer__brand">
-        <a class="footer__wordmark" href={homeHref}>Fluttera</a>
+        <a class="footer__wordmark" href={homeHref}>
+          <svg class="footer__mark" viewBox="0 0 220 220" width="34" height="34" aria-hidden="true">
+            <defs>
+              <linearGradient id="footer-silver" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#FFFFFF"></stop>
+                <stop offset="0.38" stop-color="#E8EAF0"></stop>
+                <stop offset="0.68" stop-color="#B8BDC8"></stop>
+                <stop offset="1" stop-color="#F7F8FB"></stop>
+              </linearGradient>
+            </defs>
+            <g transform="translate(22 28)" fill="url(#footer-silver)">
+              <path d="M14 43 C14 20 32 4 55 4 H164 L139 29 C126 42 111 49 92 49 H14 Z"></path>
+              <path d="M28 78 C28 64 39 53 53 53 H138 L116 75 C104 87 92 92 76 92 H28 Z"></path>
+              <path d="M28 117 C28 105 37 96 49 96 H103 L83 121 C70 137 57 151 28 168 Z"></path>
+            </g>
+          </svg>
+          Fluttera
+        </a>
         <p class="footer__tagline">{footer.tagline}</p>
       </div>
       <nav class="footer__nav" aria-label="Legal">
@@ -28,7 +45,7 @@ const { footer } = t
 
 <style>
   .footer {
-    background: #000;
+    background: var(--midnight-deep);
     padding-block: clamp(2.5rem, 6vw, 4rem) 2rem;
   }
 
@@ -43,18 +60,29 @@ const { footer } = t
   }
 
   .footer__wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
     font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 1.8rem;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.35rem;
+    letter-spacing: 0.08em;
     text-decoration: none;
+    /* Silver wordmark next to the silver-gradient mark — the kit's dark lockup */
+    color: var(--paper-on-dark);
+  }
+
+  .footer__mark {
+    flex: none;
   }
 
   .footer__tagline {
-    color: var(--soft-on-dark);
-    font-size: var(--text-small);
-    margin-top: 0.5rem;
+    color: var(--gold);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 0.6rem;
   }
 
   .footer__nav {

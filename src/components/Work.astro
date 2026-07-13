@@ -64,14 +64,14 @@ const images = [
   .case {
     border: 1px solid var(--hairline);
     border-radius: var(--radius-s);
-    background: #fff;
+    background: var(--paper-warm);
     display: flex;
     flex-direction: column;
     transition: border-color var(--dur-fast) var(--ease);
   }
 
   .case:hover {
-    border-color: rgba(39, 67, 205, 0.4);
+    border-color: color-mix(in srgb, var(--blue) 40%, transparent);
   }
 
   .case__media {
