@@ -4,6 +4,9 @@
    ———————————————————————————————————————————————— */
 
 :root {
+  /* Light-only site: forbid browser auto-darkening (Android Chrome dark theme etc.) */
+  color-scheme: only light;
+
   /* Colour — two-colour print system: paper, ink, one Reflex-blue spot colour */
   --paper: #f4f7fb;
   --paper-warm: #ffffff;
