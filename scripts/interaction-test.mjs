@@ -34,7 +34,7 @@ const ok = (name, cond, extra = '') => results.push(`${cond ? 'PASS' : 'FAIL'} $
 
   // Calendly CTAs are real links
   const hrefs = await page.$$eval('[data-calendly]', (as) => as.map((a) => a.href))
-  ok('calendly hrefs', hrefs.length >= 3 && hrefs.every((h) => h.startsWith('https://calendly.com/fluttera/30min')), `${hrefs.length} CTAs`)
+  ok('calendly hrefs', hrefs.length >= 3 && hrefs.every((h) => h.startsWith('https://calendly.com/alex-fluttera/erster-austausch')), `${hrefs.length} CTAs`)
 
   // Language toggle preserves hash
   await page.evaluate(() => (location.hash = '#faq'))

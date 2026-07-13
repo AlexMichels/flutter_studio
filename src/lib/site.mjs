@@ -1,5 +1,5 @@
 export const SITE_URL = 'https://fluttera.de'
-export const CALENDLY_URL = 'https://calendly.com/fluttera/30min'
+export const CALENDLY_URL = 'https://calendly.com/alex-fluttera/erster-austausch'
 export const EMAIL = 'alex@fluttera.de'
 export const PHONE = '+4952424129026'
 export const PHONE_DISPLAY = '+49 5242 412 9026'
