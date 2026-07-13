@@ -25,3 +25,5 @@ Per-locale meta + hreflang, JSON-LD (ProfessionalService, FAQPage mirroring the 
 
 # Validation
 `node scripts/check-i18n-parity.mjs` · `node scripts/check-links.mjs` (after build) · `npx html-validate "dist/**/*.html"` · `node scripts/screenshot.mjs <outDir>` and `node scripts/interaction-test.mjs <outDir>` (need `npm run preview` running on :4321 and local Chrome).
+# Forbidden
+Do not touch any UI element without asking, colour or anything without asking. Sometimes you just changed colours without asking. Don't do that.
