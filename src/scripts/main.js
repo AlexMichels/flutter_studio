@@ -134,6 +134,14 @@ function setupLangToggle() {
   })
 }
 
+/* ————— Hero video: honour reduced motion by leaving it on the poster ————— */
+function setupHeroVideo() {
+  const video = document.querySelector('[data-hero-video]')
+  if (!video || !reducedMotion.matches) return
+  video.removeAttribute('autoplay')
+  video.pause()
+}
+
 init()
 
 function init() {
@@ -142,4 +150,5 @@ function init() {
   setupNav()
   setupCalendly()
   setupLangToggle()
+  setupHeroVideo()
 }

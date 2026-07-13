@@ -11,16 +11,18 @@ const { hero } = t
 
 <section class="hero" id="top" data-testid="hero">
   <div class="hero__frame" data-theme="dark">
-    <img
-      class="hero__image"
-      src="/assets/img/fluttera-office-hero.jpg"
-      alt=""
-      width="3840"
-      height="2160"
-      loading="eager"
-      decoding="async"
-      fetchpriority="high"
-    />
+    <video
+      class="hero__video"
+      src="/assets/alexander_michels_fluttera_commercial.mp4"
+      poster="/assets/img/fluttera-office-hero.jpg"
+      autoplay
+      muted
+      loop
+      playsinline
+      aria-hidden="true"
+      tabindex="-1"
+      data-hero-video
+    ></video>
 
     <div class="hero__inner">
       <div class="hero__content">
@@ -53,7 +55,7 @@ const { hero } = t
     color: #fff;
   }
 
-  .hero__image {
+  .hero__video {
     position: absolute;
     inset: 0;
     z-index: -2;
@@ -77,7 +79,9 @@ const { hero } = t
   .hero__headline {
     max-width: 12em;
     margin-inline: auto;
-    font-size: clamp(3.2rem, 7.5vw, 7.5rem);
+    /* Kept deliberately compact so the video behind stays visible */
+    font-size: clamp(2.35rem, 5.5vw, 5.5rem);
+    letter-spacing: -0.01em;
   }
 
   .hero__sub {
@@ -114,10 +118,10 @@ const { hero } = t
     }
 
     .hero__headline {
-      font-size: clamp(3rem, 13vw, 4.75rem);
+      font-size: clamp(2.2rem, 9.5vw, 3.5rem);
     }
 
-    .hero__image { object-position: 50% center; }
+    .hero__video { object-position: 50% center; }
   }
 
   @media (max-width: 30rem) {
