@@ -134,7 +134,7 @@ function setupLangToggle() {
   })
 }
 
-/* ————— Hero video: honour reduced motion by leaving it on the poster ————— */
+/* ————— Hero video: honour reduced motion by pausing on its first frame ————— */
 function setupHeroVideo() {
   const video = document.querySelector('[data-hero-video]')
   if (!video || !reducedMotion.matches) return

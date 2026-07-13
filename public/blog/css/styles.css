@@ -1,5 +1,6 @@
 /* Base Styles */
 :root {
+    color-scheme: only light;
     --text-color: #292929;
     --secondary-text: #757575;
     --background-color: #ffffff;

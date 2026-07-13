@@ -31,8 +31,12 @@ const ogImageUrl = new URL(ogImage, SITE_URL).href
 ---
 
 <!doctype html>
-<html lang={t.htmlLang}>
+<html lang={t.htmlLang} style="color-scheme: only light;">
   <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="only light" />
+    <meta name="theme-color" content="#f4f7fb" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script is:inline>
       document.documentElement.classList.add('js')
 
@@ -42,8 +46,6 @@ const ogImageUrl = new URL(ogImage, SITE_URL).href
         window.location.replace(`/en/${window.location.hash}`)
       }
     </script>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Alexander Michels" />
@@ -69,8 +71,6 @@ const ogImageUrl = new URL(ogImage, SITE_URL).href
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
-    <meta name="color-scheme" content="only light" />
-    <meta name="theme-color" content="#f4f7fb" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/assets/img/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/assets/og/apple-touch-icon.png" />
