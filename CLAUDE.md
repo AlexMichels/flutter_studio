@@ -18,7 +18,7 @@ One-page marketing website for Fluttera (fluttera.de) — the Flutter freelance 
 - Motion: IntersectionObserver reveals + count-ups in `src/scripts/main.js` (vanilla, small). Full prefers-reduced-motion support; content must stay visible without JS.
 
 # Conversion path
-Primary CTA: Calendly popup (https://calendly.com/alex-fluttera/erster-austausch) — CTAs are real `<a>` links progressively enhanced (`data-calendly`). Secondary: mailto alex@fluttera.de, tel +49 5242 412 9026. No contact form.
+Primary CTA: Calendly (https://calendly.com/alex-fluttera/erster-austausch) — CTAs are plain `<a>` links that open the Calendly page in a new tab. The popup widget was removed on 2026-07-13 (owner decision, it was unreliable) — do NOT re-add it; `data-calendly` remains only as a marker/test hook. Secondary: mailto alex@fluttera.de, tel +49 5242 412 9026. No contact form.
 
 # SEO/AEO
 Per-locale meta + hreflang, JSON-LD (ProfessionalService, FAQPage mirroring the FAQ dictionary, WebSite) in `src/lib/jsonld.mjs`, sitemap via @astrojs/sitemap, `public/robots.txt` (AI crawlers explicitly allowed), `public/llms.txt`. Keep GA gtag G-CEV6Q1NVH8.

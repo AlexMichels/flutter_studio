@@ -87,44 +87,6 @@ function setupNav() {
   })
 }
 
-/* ————— Calendly: plain links enhanced into a popup once the widget loads ————— */
-function setupCalendly() {
-  const links = document.querySelectorAll('[data-calendly]')
-  if (links.length === 0) return
-  let loading = false
-
-  const load = () => {
-    if (loading) return
-    loading = true
-    const css = document.createElement('link')
-    css.rel = 'stylesheet'
-    css.href = 'https://assets.calendly.com/assets/external/widget.css'
-    document.head.appendChild(css)
-    const js = document.createElement('script')
-    js.src = 'https://assets.calendly.com/assets/external/widget.js'
-    js.async = true
-    document.head.appendChild(js)
-  }
-
-  // Warm up the widget when a CTA is approached; fall back to idle load.
-  links.forEach((a) => {
-    a.addEventListener('pointerenter', load, { once: true })
-    a.addEventListener('focus', load, { once: true })
-    a.addEventListener('click', (e) => {
-      if (window.Calendly) {
-        e.preventDefault()
-        window.Calendly.initPopupWidget({ url: a.href })
-      }
-      // else: default behavior — the plain link opens Calendly in a new tab.
-    })
-  })
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(load, { timeout: 4000 })
-  } else {
-    setTimeout(load, 4000)
-  }
-}
-
 /* ————— Language toggle: preserve the current section anchor ————— */
 function setupLangToggle() {
   document.querySelectorAll('[data-lang-switch]').forEach((a) => {
@@ -148,7 +110,6 @@ function init() {
   setupReveals()
   setupScrollFill()
   setupNav()
-  setupCalendly()
   setupLangToggle()
   setupHeroVideo()
 }

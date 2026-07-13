@@ -10,6 +10,8 @@ interface Props {
 const { label, class: className, testId } = Astro.props
 ---
 
+{/* Opens the Calendly page directly in a new tab — the popup widget was
+    removed on purpose (unreliable); data-calendly stays as a marker/test hook. */}
 <a
   class:list={['btn', 'btn--primary', className]}
   href={CALENDLY_URL}

@@ -100,6 +100,19 @@ const { hero } = t
     margin-top: 2rem;
   }
 
+  /* Owner decision: see-through glass CTA over the video — white text,
+     translucent fill so the video stays visible behind it */
+  .hero__actions :global(.btn--primary) {
+    border-color: rgba(255, 255, 255, 0.58);
+    background: rgba(4, 8, 20, 0.28);
+    color: #fff;
+  }
+
+  .hero__actions :global(.btn--primary:hover) {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
   @media (max-width: 48rem) {
     .hero__inner {
       align-items: end;
