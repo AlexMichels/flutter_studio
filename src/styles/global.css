@@ -61,14 +61,16 @@ p {
   text-wrap: pretty;
 }
 
-/* Display headlines: Orbitron is a wide geometric face (brand kit) — set in
-   sentence case at large sizes; uppercase is reserved for small labels. */
+/* Display headlines: Anton is a single-weight (400) condensed face designed
+   for tight uppercase settings — never synthesize bolder weights. */
 h1,
 h2 {
   font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: 0.01em;
+  font-weight: 400;
+  /* Anton's umlauts sit above cap height — keep air between lines */
+  line-height: 1.04;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
   text-wrap: balance;
 }
 

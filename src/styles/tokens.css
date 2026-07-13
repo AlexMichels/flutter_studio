@@ -30,14 +30,15 @@
   --silver: #c0c2c7;
 
   /* Typography — three voices, strictly separated jobs.
-     Display: Orbitron (brand kit) — wide geometric face, variable 400–900;
-     sentence case at large sizes, letter-spaced for small labels. */
-  --font-display: 'Orbitron', 'Helvetica Neue', Arial, sans-serif;
-  --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+     Display: Anton (free stand-in for ploy.ai's commercial FK Screamer) —
+     single weight 400, condensed, meant for uppercase settings.
+     (Kit lists Orbitron/Inter; tried and reverted — owner prefers these.) */
+  --font-display: 'Anton', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Geist', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'IBM Plex Mono', 'SF Mono', Menlo, Consolas, monospace;
 
-  --text-hero: clamp(2.4rem, 6.8vw, 6rem);
-  --text-h2: clamp(2rem, 3.8vw, 3.2rem);
+  --text-hero: clamp(3.5rem, 10vw, 8.8rem);
+  --text-h2: clamp(2.35rem, 4.6vw, 4rem);
   --text-h3: clamp(1.25rem, 2vw, 1.6rem);
   --text-lead: clamp(1.06rem, 1.4vw, 1.25rem);
   --text-body: 1.0625rem;
