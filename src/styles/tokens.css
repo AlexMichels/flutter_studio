@@ -1,0 +1,56 @@
+/* ————————————————————————————————————————————————
+   Fluttera design tokens — "printed matter" system:
+   warm paper, ink, one royal-blue spot colour, mono marginalia.
+   ———————————————————————————————————————————————— */
+
+:root {
+  /* Colour — two-colour print system: paper, ink, one Reflex-blue spot colour */
+  --paper: #f4f7fb;
+  --paper-warm: #ffffff;
+  --ink: #222326;
+  --ink-soft: #7d8794;
+  --blue: #2854bd;
+  --blue-deep: #1d46aa;
+  --blue-wash: #dce8ff;
+  --midnight: #050505;
+  --midnight-deep: #000000;
+  --paper-on-dark: #f7f8fa;
+  --soft-on-dark: rgba(247, 248, 250, 0.68);
+  --blue-on-dark: #d9e6ff;
+  --hairline: #aeb3b8;
+  --hairline-on-dark: #2c2c2c;
+  --green: #2e7d5b;
+
+  /* Typography — three voices, strictly separated jobs.
+     Display: Anton (free stand-in for ploy.ai's commercial FK Screamer) —
+     single weight 400, condensed, meant for uppercase settings. */
+  --font-display: 'Anton', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Geist', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  --text-hero: clamp(3.5rem, 10vw, 8.8rem);
+  --text-h2: clamp(2.35rem, 4.6vw, 4rem);
+  --text-h3: clamp(1.25rem, 2vw, 1.6rem);
+  --text-lead: clamp(1.06rem, 1.4vw, 1.25rem);
+  --text-body: 1.0625rem;
+  --text-small: 0.9375rem;
+  --text-mono: 0.8125rem;
+  --track-mono: 0.08em;
+
+  /* Layout */
+  --container: 82rem;
+  --gutter: clamp(1.25rem, 5vw, 4.5rem);
+  --section-pad: clamp(5rem, 9vw, 8rem);
+
+  /* Shape — print-sharp corners, flat offset shadows (no blur) */
+  --radius-s: 14px;
+  --radius-m: 22px;
+  --shadow-offset: 0 18px 45px rgba(30, 45, 70, 0.12);
+  --shadow-offset-blue: 0 18px 45px rgba(39, 67, 205, 0.18);
+
+  /* Motion — one easing family */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 200ms;
+  --dur-med: 400ms;
+  --dur-slow: 600ms;
+}

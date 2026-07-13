@@ -1,0 +1,323 @@
+---
+import CalendlyCta from './CalendlyCta.astro'
+
+interface Props {
+  t: Record<string, any>
+  /** Prefix for section anchors: '' on the home page itself, '/' or '/en/' on subpages */
+  anchorBase?: string
+  homeHref: string
+}
+
+const { t, anchorBase = '', homeHref } = Astro.props
+const { nav } = t
+---
+
+<header class="nav" data-nav data-testid="site-nav">
+  <div class="nav__inner">
+    <div class="nav__pill">
+      <a class="nav__brand" href={homeHref} aria-label="Fluttera Home">Fluttera</a>
+
+      <nav class="nav__menu" id="site-menu" data-menu aria-label={nav.menuLabel}>
+        <ul class="nav__list">
+          {
+            nav.links.map((link: { href: string; label: string }) => (
+              <li>
+                <a class="nav__link" href={anchorBase + link.href}>
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="nav__menu-cta">
+          <CalendlyCta label={nav.cta} testId="menu-cta" />
+        </div>
+      </nav>
+
+      <a
+        class="nav__flag"
+        href={nav.langSwitch.href}
+        data-lang-switch
+        data-testid="language-toggle"
+        aria-label={nav.langSwitch.ariaLabel}
+        title={nav.langSwitch.label}
+      >
+        {
+          t.locale === 'de' ? (
+            <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+              <clipPath id="flag-en">
+                <circle cx="16" cy="16" r="16" />
+              </clipPath>
+              <g clip-path="url(#flag-en)">
+                <rect width="32" height="32" fill="#012169" />
+                <path d="M0 0 32 32 M32 0 0 32" stroke="#fff" stroke-width="6" />
+                <path d="M0 0 32 32 M32 0 0 32" stroke="#C8102E" stroke-width="2.6" />
+                <path d="M16 0 V32 M0 16 H32" stroke="#fff" stroke-width="10" />
+                <path d="M16 0 V32 M0 16 H32" stroke="#C8102E" stroke-width="6" />
+              </g>
+            </svg>
+          ) : (
+            <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+              <clipPath id="flag-de">
+                <circle cx="16" cy="16" r="16" />
+              </clipPath>
+              <g clip-path="url(#flag-de)">
+                <rect width="32" height="11" fill="#111" />
+                <rect y="11" width="32" height="10" fill="#DD0000" />
+                <rect y="21" width="32" height="11" fill="#FFCE00" />
+              </g>
+            </svg>
+          )
+        }
+      </a>
+
+      <button
+        class="nav__burger"
+        type="button"
+        data-menu-toggle
+        data-testid="menu-toggle"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label={nav.openMenu}
+        data-label-open={nav.openMenu}
+        data-label-close={nav.closeMenu}
+      >
+        <span class="nav__burger-bar" aria-hidden="true"></span>
+        <span class="nav__burger-bar" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="nav__cta-wrap">
+      <CalendlyCta class="nav__cta" label={nav.cta} testId="nav-cta" />
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Ploy-style: one solid white pill with the wordmark and links on the left,
+     one solid black CTA pill on the right. Never changes on scroll. */
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 50;
+    padding: 0.9rem clamp(1rem, 6vw, 5.5rem) 0;
+    color: var(--ink);
+    pointer-events: none;
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 84rem;
+    margin-inline: auto;
+  }
+
+  .nav__pill {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: clamp(1.2rem, 2vw, 2rem);
+    height: 2.5rem;
+    padding-inline: 1.5rem;
+    border-radius: 999px;
+    /* Apple liquid-glass: seamless at the top of the page, clearly
+       translucent and frosted once it floats over the hero image. */
+    background: color-mix(in srgb, var(--paper) 58%, transparent);
+    -webkit-backdrop-filter: blur(22px) saturate(1.8);
+    backdrop-filter: blur(22px) saturate(1.8);
+  }
+
+  .nav__brand {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.2rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .nav__menu {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: clamp(1rem, 1.7vw, 1.8rem);
+  }
+
+  .nav__link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    color: color-mix(in srgb, var(--ink) 68%, transparent);
+    transition: color var(--dur-fast) var(--ease);
+  }
+
+  .nav__link:hover {
+    color: var(--ink);
+  }
+
+  .nav__menu-cta {
+    display: none;
+  }
+
+  .nav__flag {
+    display: block;
+    flex: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgba(25, 26, 30, 0.14);
+    transition: transform var(--dur-fast) var(--ease);
+  }
+
+  .nav__flag svg {
+    display: block;
+    border-radius: 50%;
+  }
+
+  .nav__flag:hover {
+    transform: scale(1.08);
+  }
+
+  .nav__cta-wrap {
+    pointer-events: auto;
+  }
+
+  /* Inherits .btn--primary spot blue — same blue as the founder badge */
+  .nav__cta-wrap :global(.nav__cta) {
+    height: 2.5rem;
+    padding: 0 1.4rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .nav__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    margin-right: -10px;
+  }
+
+  .nav__burger-bar {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform var(--dur-fast) var(--ease);
+  }
+
+  @media (max-width: 73.99rem) {
+    .nav__cta-wrap {
+      display: none;
+    }
+
+    .nav__pill {
+      flex: 1;
+    }
+
+    .nav__brand {
+      margin-right: auto;
+    }
+
+    .nav__burger {
+      display: flex;
+    }
+
+    /* Dropdown card below the pill */
+    .nav__menu {
+      position: absolute;
+      top: 3.9rem;
+      left: clamp(0.75rem, 2vw, 1.5rem);
+      right: clamp(0.75rem, 2vw, 1.5rem);
+      margin: 0;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 1.5rem;
+      max-height: calc(100dvh - 6rem);
+      overflow: auto;
+      border-radius: 28px;
+      /* Solid surface: the hero image sits right behind and would ghost
+         through any translucency */
+      background: #fff;
+      box-shadow: 0 24px 60px rgba(30, 45, 70, 0.16);
+      opacity: 0;
+      transform: translateY(-8px);
+      visibility: hidden;
+      transition:
+        opacity var(--dur-fast) var(--ease),
+        transform var(--dur-fast) var(--ease),
+        visibility 0s linear var(--dur-fast);
+    }
+
+    :global(.nav--open) .nav__menu {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+      transition:
+        opacity var(--dur-fast) var(--ease),
+        transform var(--dur-fast) var(--ease),
+        visibility 0s;
+    }
+
+    .nav__list {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .nav__list li + li {
+      border-top: 1px solid color-mix(in srgb, var(--hairline) 45%, transparent);
+    }
+
+    /* Compact menu rows, same voice as the desktop links (ploy-style) */
+    .nav__link {
+      display: flex;
+      align-items: center;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      padding-block: 0.8rem;
+    }
+
+    .nav__menu-cta {
+      display: block;
+      margin-top: 1.25rem;
+    }
+
+    .nav__menu-cta :global(.btn) {
+      width: 100%;
+    }
+
+    :global(.nav--open) .nav__burger-bar:first-child {
+      transform: translateY(4.25px) rotate(45deg);
+    }
+
+    :global(.nav--open) .nav__burger-bar:last-child {
+      transform: translateY(-4.25px) rotate(-45deg);
+    }
+
+    :global(html.menu-open) {
+      overflow: hidden;
+    }
+  }
+
+  @media (max-width: 38rem) {
+    .nav__pill {
+      gap: 1rem;
+      padding-inline: 1.4rem;
+    }
+  }
+</style>

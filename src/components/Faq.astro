@@ -1,0 +1,75 @@
+---
+import Folio from './Folio.astro'
+
+interface Props {
+  t: Record<string, any>
+}
+
+const { t } = Astro.props
+const { faq } = t
+---
+
+<section id={faq.id} class="section faq" data-testid="faq">
+  <div class="container">
+    <Folio index="05" name={faq.eyebrow} />
+    <div class="faq__head">
+      <h2 class="faq__heading reveal">{faq.heading}</h2>
+      <p>{faq.escape.body}</p>
+    </div>
+    <div class="faq__list">
+        {
+          faq.items.map((item: { q: string; a: string }, i: number) => (
+            <article class="faq-item reveal" style={`--d:${i * 40}ms`}>
+              <h3 class="faq-item__q">{item.q}</h3>
+              <p class="faq-item__a">{item.a}</p>
+            </article>
+          ))
+        }
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    background: #fff;
+  }
+
+  .faq__head { max-width: 46rem; margin: 0 auto 3.5rem; text-align: center; }
+  .faq__head > p { color: var(--ink-soft); }
+
+  .faq__heading {
+    font-size: var(--text-h2);
+    margin-bottom: 1rem;
+  }
+
+  .faq__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .faq-item {
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-s);
+    background: var(--paper);
+    padding: 1.7rem;
+    min-height: 12rem;
+  }
+
+  .faq-item__q {
+    font-weight: 600;
+    font-size: 1.0625rem;
+    letter-spacing: -.02em;
+    margin-bottom: .8rem;
+  }
+
+  .faq-item__a {
+    color: var(--ink-soft);
+    padding: 0;
+    max-width: 44em;
+  }
+
+  @media (max-width: 63.99rem) {
+    .faq__list { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,125 @@
+---
+import Folio from './Folio.astro'
+
+interface Props {
+  t: Record<string, any>
+}
+
+const { t } = Astro.props
+const { work } = t
+
+const images = [
+  '/assets/img/cases/smart-home.jpg',
+  '/assets/img/cases/medtech-rehab.jpg',
+  '/assets/img/cases/hr-operations.jpg',
+  '/assets/img/cases/founder-mvp.jpg',
+]
+---
+
+<section id={work.id} class="section work" data-testid="work">
+  <div class="container">
+    <Folio index="02" name={work.eyebrow} />
+    <div class="section-head">
+      <h2>{work.heading}</h2>
+      <p class="intro">{work.intro}</p>
+    </div>
+
+    <div class="work__grid">
+      {
+        work.cards.map((card: any, i: number) => (
+          <article class="case reveal" style={`--d:${(i % 2) * 80}ms`}>
+            <div class="case__media">
+              <img
+                src={images[i]}
+                alt={`${card.category} — ${card.title}`}
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="case__body">
+              <span class="case__category mono">{card.category}</span>
+              <h3 class="case__title">{card.title}</h3>
+              <p class="case__text">{card.body}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .work {
+    background: var(--paper);
+  }
+
+  .work__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
+  }
+
+  .case {
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-s);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    transition: border-color var(--dur-fast) var(--ease);
+  }
+
+  .case:hover {
+    border-color: rgba(39, 67, 205, 0.4);
+  }
+
+  .case__media {
+    aspect-ratio: 16 / 9;
+    border-bottom: 1px solid var(--hairline);
+    border-radius: var(--radius-s) var(--radius-s) 0 0;
+    overflow: hidden;
+  }
+
+  .case__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-med) var(--ease);
+  }
+
+  .case:hover .case__media img {
+    transform: scale(1.025);
+  }
+
+  .case__body {
+    padding: clamp(1.3rem, 2.6vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .case__category {
+    color: var(--blue);
+    margin-bottom: 0.9rem;
+  }
+
+  .case__title {
+    font-size: var(--text-h3);
+    margin-bottom: 0.7rem;
+    max-width: 18em;
+  }
+
+  .case__text {
+    color: var(--ink-soft);
+    font-size: var(--text-small);
+    max-width: 40em;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 63.99rem) {
+    .work__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

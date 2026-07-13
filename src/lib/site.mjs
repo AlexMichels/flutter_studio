@@ -1,0 +1,8 @@
+export const SITE_URL = 'https://fluttera.de'
+export const CALENDLY_URL = 'https://calendly.com/fluttera/30min'
+export const EMAIL = 'alex@fluttera.de'
+export const PHONE = '+4952424129026'
+export const PHONE_DISPLAY = '+49 5242 412 9026'
+export const GA_ID = 'G-CEV6Q1NVH8'
+export const OWNER = 'Alexander Michels'
+export const BRAND = 'Fluttera'

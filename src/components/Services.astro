@@ -1,0 +1,121 @@
+---
+import Folio from './Folio.astro'
+import { em } from '../i18n/index.mjs'
+
+interface Props {
+  t: Record<string, any>
+}
+
+const { t } = Astro.props
+const { services } = t
+const large = services.cards.filter((c: any) => c.size === 'large')
+const small = services.cards.filter((c: any) => c.size === 'small')
+---
+
+<section id={services.id} class="section services" data-theme="dark" data-testid="services">
+  <div class="container">
+    <Folio index="01" name={services.eyebrow} />
+    <div class="section-head">
+      <h2 set:html={em(services.heading)} />
+      <p class="intro">{services.intro}</p>
+    </div>
+
+    <div class="services__grid">
+      {
+        large.map((card: any, i: number) => (
+          <article class="svc svc--lg reveal" style={`--d:${i * 60}ms`}>
+            <h3 class="svc__title">{card.title}</h3>
+            <p class="svc__body">{card.body}</p>
+            <p class="svc__tags mono">{card.tags.join(' · ')}</p>
+          </article>
+        ))
+      }
+      {
+        small.map((card: any, i: number) => (
+          <article class="svc svc--sm reveal" style={`--d:${i * 60}ms`}>
+            <h3 class="svc__title svc__title--sm">{card.title}</h3>
+            <p class="svc__body svc__body--sm">{card.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .services .section-head { margin-bottom: 3rem; }
+
+  .svc {
+    border: 1px solid var(--hairline-on-dark);
+    border-radius: var(--radius-s);
+    padding: clamp(1.4rem, 3vw, 2.2rem);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .svc--lg {
+    grid-column: span 3;
+    min-height: 18rem;
+    background: #f4f7fb;
+    color: var(--ink);
+    border: 0;
+  }
+
+  .svc--lg:first-child { background: var(--blue); color: #fff; }
+  .svc--lg:first-child .svc__body { color: rgba(255,255,255,.84); }
+
+  .svc--sm {
+    grid-column: span 2;
+  }
+
+  .svc__title {
+    font-size: var(--text-h3);
+    margin-bottom: 0.8rem;
+    max-width: 16em;
+  }
+
+  .svc__title--sm {
+    font-size: 1.2rem;
+  }
+
+  .svc__body {
+    color: inherit;
+    opacity: .72;
+    max-width: 34em;
+  }
+
+  .svc__body--sm {
+    font-size: var(--text-small);
+  }
+
+  .svc__tags {
+    margin-top: auto;
+    padding-top: 1.6rem;
+    color: var(--blue);
+    font-size: 0.6875rem;
+  }
+
+  @media (max-width: 63.99rem) {
+    .svc--lg {
+      grid-column: 1 / -1;
+      min-height: 0;
+    }
+
+    .svc--sm {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 47.99rem) {
+    .svc--sm {
+      grid-column: 1 / -1;
+    }
+
+  }
+</style>

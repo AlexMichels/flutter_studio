@@ -1,0 +1,20 @@
+---
+import { CALENDLY_URL } from '../lib/site.mjs'
+
+interface Props {
+  label: string
+  class?: string
+  testId?: string
+}
+
+const { label, class: className, testId } = Astro.props
+---
+
+<a
+  class:list={['btn', 'btn--primary', className]}
+  href={CALENDLY_URL}
+  target="_blank"
+  rel="noopener"
+  data-calendly
+  data-testid={testId}
+>{label}</a>

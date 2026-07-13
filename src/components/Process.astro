@@ -1,0 +1,82 @@
+---
+import Folio from './Folio.astro'
+
+interface Props {
+  t: Record<string, any>
+}
+
+const { t } = Astro.props
+const { process } = t
+---
+
+<section id={process.id} class="section process" data-testid="process">
+  <div class="container">
+    <Folio index="03" name={process.eyebrow} />
+    <div class="section-head">
+      <h2>{process.heading}</h2>
+      <p class="intro">{process.intro}</p>
+    </div>
+
+    <ol class="process__steps">
+      {
+        process.steps.map((step: any, i: number) => (
+          <li class="step reveal" style={`--d:${i * 70}ms`}>
+            <span class="step__index mono" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="step__title">{step.title}</h3>
+            <p class="step__body">{step.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .process__steps {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+    counter-reset: step;
+  }
+
+  .step {
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-s);
+    background: var(--paper);
+    padding: 2rem;
+    min-height: 18rem;
+    position: relative;
+  }
+
+  .step::before { display: none; }
+
+  .step__index {
+    color: var(--blue);
+    display: block;
+    margin-bottom: 1.6rem;
+  }
+
+  .step__title {
+    font-size: 1.35rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .step__body {
+    color: var(--ink-soft);
+    font-size: var(--text-small);
+  }
+
+  @media (max-width: 63.99rem) {
+    .process__steps {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+
+  @media (max-width: 47.99rem) {
+    .process__steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

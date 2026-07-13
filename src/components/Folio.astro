@@ -1,0 +1,17 @@
+---
+// Folio header: the recurring hairline rule carrying a section index and name —
+// the site's print-derived signature motif.
+interface Props {
+  index: string
+  name: string
+  mark?: string
+}
+
+const { index, name, mark = 'Fluttera' } = Astro.props
+---
+
+<div class="folio">
+  <span class="folio__index mono">{index}</span>
+  <span class="folio__name mono">{name}</span>
+  <span class="folio__mark mono" aria-hidden="true">{mark}</span>
+</div>

@@ -1,0 +1,133 @@
+---
+import CalendlyCta from './CalendlyCta.astro'
+
+interface Props {
+  t: Record<string, any>
+}
+
+const { t } = Astro.props
+const { hero } = t
+---
+
+<section class="hero" id="top" data-testid="hero">
+  <div class="hero__frame" data-theme="dark">
+    <img
+      class="hero__image"
+      src="/assets/img/fluttera-office-hero.jpg"
+      alt=""
+      width="3840"
+      height="2160"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+
+    <div class="hero__inner">
+      <div class="hero__content">
+        <h1 class="hero__headline reveal">{hero.headline}</h1>
+        <p class="hero__sub reveal" style="--d:160ms">{hero.sub}</p>
+        <div class="hero__actions reveal" style="--d:240ms">
+          <CalendlyCta label={hero.ctaPrimary} testId="hero-cta" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Ploy-style hero: the image sits in an inset, rounded frame on the paper
+     page instead of bleeding to the edges. The nav floats above on paper. */
+  .hero {
+    padding: 4.1rem clamp(0.75rem, 2vw, 1.5rem) clamp(2.5rem, 5vw, 4rem);
+    background: var(--paper);
+  }
+
+  .hero__frame {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    overflow: hidden;
+    min-height: calc(100svh - 5.5rem);
+    border-radius: clamp(20px, 2.5vw, 28px);
+    background: #080b18;
+    color: #fff;
+  }
+
+  .hero__image {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero__inner {
+    display: grid;
+    place-items: center;
+    padding: clamp(4.5rem, 9vh, 6.5rem) var(--gutter) clamp(5.5rem, 11vh, 7.5rem);
+  }
+
+  .hero__content {
+    width: min(100%, 76rem);
+    text-align: center;
+  }
+
+  .hero__headline {
+    max-width: 12em;
+    margin-inline: auto;
+    font-size: clamp(3.2rem, 7.5vw, 7.5rem);
+  }
+
+  .hero__sub {
+    max-width: 48rem;
+    margin: clamp(1.7rem, 4vh, 2.6rem) auto 0;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: clamp(1.05rem, 1.45vw, 1.25rem);
+    line-height: 1.48;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .hero__actions :global(.btn--primary) {
+    background: #fff;
+    color: #11131b;
+  }
+
+  .hero__actions :global(.btn--primary:hover) {
+    background: #dce8ff;
+    color: #11131b;
+  }
+
+  @media (max-width: 48rem) {
+    .hero__inner {
+      align-items: end;
+      padding-top: 5rem;
+      padding-bottom: 6.5rem;
+    }
+
+    .hero__headline {
+      font-size: clamp(3rem, 13vw, 4.75rem);
+    }
+
+    .hero__image { object-position: 50% center; }
+  }
+
+  @media (max-width: 30rem) {
+    .hero__actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .hero__actions :global(.btn) {
+      width: 100%;
+    }
+  }
+</style>

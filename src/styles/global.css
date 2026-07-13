@@ -1,0 +1,421 @@
+@import './tokens.css';
+@import './fonts.css';
+
+/* ————— Reset ————— */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-gutter: stable;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--blue-wash);
+  color: var(--ink);
+}
+
+[data-theme='dark'] ::selection {
+  background: var(--blue-deep);
+  color: var(--paper-on-dark);
+}
+
+/* ————— Base typography ————— */
+p {
+  text-wrap: pretty;
+}
+
+/* Display headlines: Anton is a single-weight (400) condensed face designed
+   for tight uppercase settings — never synthesize bolder weights. */
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  /* Anton's umlauts sit above cap height — keep air between lines */
+  line-height: 1.04;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+:lang(de) p,
+:lang(de) li {
+  hyphens: auto;
+}
+
+/* Lead/large text and mono lines read badly with auto-hyphenation */
+:lang(de) .intro,
+:lang(de) .mono,
+.mono {
+  hyphens: manual;
+}
+
+a {
+  color: inherit;
+}
+
+main :is(p, li) a:not(.btn):not(.link-bleed) {
+  color: var(--blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-thickness var(--dur-fast) var(--ease);
+}
+
+main :is(p, li) a:not(.btn):not(.link-bleed):hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+[data-theme='dark'] :focus-visible {
+  outline-color: var(--blue-on-dark);
+}
+
+/* Headline spot-colour accent: *word* in dictionaries renders as <em> */
+h1 em,
+h2 em {
+  font-style: normal;
+  color: var(--blue);
+}
+
+[data-theme='dark'] h1 em,
+[data-theme='dark'] h2 em {
+  color: var(--blue-on-dark);
+}
+
+/* Drawn underline variant (hero only): animates in via .revealed */
+.em-draw em {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 94%;
+  background-size: 0% 0.06em;
+  transition: background-size var(--dur-slow) var(--ease) 300ms;
+}
+
+html:not(.js) .em-draw em,
+.em-draw.revealed em {
+  background-size: 100% 0.06em;
+}
+
+/* ————— Layout primitives ————— */
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-pad);
+}
+
+[data-theme='dark'] {
+  background: var(--midnight);
+  color: var(--paper-on-dark);
+}
+
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* ————— Mono marginalia ————— */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  font-weight: 400;
+  letter-spacing: var(--track-mono);
+  text-transform: uppercase;
+}
+
+/* Folio header: hairline rule carrying index + section name */
+.folio {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  margin-bottom: 1rem;
+}
+
+[data-theme='dark'] .folio {
+  border-top-color: var(--hairline-on-dark);
+}
+
+.folio__index {
+  display: none;
+}
+
+[data-theme='dark'] .folio__index {
+  color: var(--blue-on-dark);
+}
+
+.folio__name {
+  color: var(--blue);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+}
+
+[data-theme='dark'] .folio__name {
+  color: var(--soft-on-dark);
+}
+
+.folio__mark {
+  display: none;
+}
+
+[data-theme='dark'] .folio__mark {
+  color: var(--soft-on-dark);
+}
+
+/* Section heading block under the folio */
+.section-head {
+  max-width: 52rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.section-head h2 {
+  font-size: var(--text-h2);
+  margin-bottom: 1.25rem;
+}
+
+.section-head .intro {
+  font-size: var(--text-lead);
+  color: var(--ink-soft);
+  max-width: 36em;
+}
+
+[data-theme='dark'] .section-head .intro {
+  color: var(--soft-on-dark);
+}
+
+/* ————— Buttons — die-cut rectangles, print-sharp ————— */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 1rem 1.7rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition:
+    background-color var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--blue);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--blue-deep);
+}
+
+.btn--ghost {
+  border-color: var(--hairline);
+  background: #fff;
+  color: var(--ink);
+}
+
+.btn--ghost:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+[data-theme='dark'] .btn--ghost {
+  border-color: var(--paper-on-dark);
+  color: var(--paper-on-dark);
+}
+
+[data-theme='dark'] .btn--ghost:hover {
+  border-color: var(--blue-on-dark);
+  color: var(--blue-on-dark);
+}
+
+/* Underline-bleed text link: underline thickens and bleeds into the margin */
+.link-bleed {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding-bottom: 0.35rem;
+}
+
+.link-bleed::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: -10px;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transition: height var(--dur-fast) var(--ease), right var(--dur-fast) var(--ease);
+}
+
+.link-bleed:hover::after {
+  height: 2px;
+  right: -16px;
+}
+
+/* Availability chip */
+.avail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ink-soft);
+}
+
+[data-theme='dark'] .avail {
+  color: var(--soft-on-dark);
+}
+
+.avail__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  flex: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .avail__dot {
+    animation: avail-pulse 2.6s ease-in-out infinite;
+  }
+}
+
+@keyframes avail-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* ————— Scroll reveals ————— */
+/* Hidden state only when JS is present; no-JS users see everything instantly. */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+html.js .reveal.revealed {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--dur-med) var(--ease),
+    transform var(--dur-med) var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+
+/* Scroll-linked word fill: spans are created by JS only; opacity is driven
+   per word from main.js as the heading scrolls up */
+html.js [data-scroll-fill] .fill-word {
+  opacity: 0.16;
+}
+
+/* Rule-draw: hairline that draws itself left-to-right (hero, stats, contact only) */
+html.js .rule-draw {
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+html.js .rule-draw.revealed {
+  transform: scaleX(1);
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal,
+  html.js .rule-draw {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .em-draw em {
+    background-size: 100% 0.06em;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ————— Skip link ————— */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  background: var(--blue);
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius-s);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}

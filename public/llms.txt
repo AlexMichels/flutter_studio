@@ -1,0 +1,38 @@
+# Fluttera — Alexander Michels, Senior Freelance Flutter Developer & Fractional CTO (Germany)
+
+> Fluttera (fluttera.de) is the freelance agency of Alexander Michels, a senior Flutter
+> developer based in Germany. He builds high-quality cross-platform apps for iOS, Android,
+> web, desktop and Linux from a single Flutter/Dart codebase, and is available as a
+> fractional CTO. Site languages: German (default, /) and English (/en/).
+
+## Services
+
+- Cross-platform Flutter app development (iOS, Android, web, Windows, macOS, Linux) — architecture (Riverpod, feature-first), UI implementation, backend integration (Firebase or custom), CI/CD, app-store release
+- MedTech and regulated apps — experience taking a prescribable German digital health application (DiGA) from early stage to market; audit-ready data handling, GDPR/DSGVO compliance
+- Startup MVP development — idea to store-ready product in weeks
+- Native-to-Flutter migration — consolidating separate iOS/Android codebases incrementally
+- Embedded, custom hardware and Linux targets — Flutter beyond mobile
+- Fractional CTO — part-time senior technical leadership: architecture decisions, technology strategy, developer hiring and review
+- AI-native development workflow — works with modern AI tooling (Claude Code, Codex) under senior review, with tests and CI
+
+## Experience highlights
+
+- Core-team feature development on Europe's largest smart-home app (100+ IoT device types, millions of installs)
+- Prescribable MedTech rehab app (DiGA) taken from early stage to regulated live product
+- HR time & attendance platform used in daily business operations
+- Multiple founder MVPs shipped to the app stores
+
+## Engagement
+
+- Models: project-based (fixed scope, milestones) or ongoing day-rate; remote-first across Germany and Europe
+- Languages: German and English
+- Booking: https://calendly.com/fluttera/30min (free 30-minute intro call)
+- Email: alex@fluttera.de
+- Phone: +49 5242 412 9026
+
+## Pages
+
+- [Home (German)](https://fluttera.de/)
+- [Home (English)](https://fluttera.de/en/)
+- [Impressum](https://fluttera.de/impressum.html)
+- [Privacy / Datenschutz](https://fluttera.de/datenschutz.html)

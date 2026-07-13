@@ -1,0 +1,89 @@
+---
+interface Props {
+  t: Record<string, any>
+  homeHref: string
+}
+
+const { t, homeHref } = Astro.props
+const { footer } = t
+---
+
+<footer class="footer" data-theme="dark">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="footer__wordmark" href={homeHref}>Fluttera</a>
+        <p class="footer__tagline">{footer.tagline}</p>
+      </div>
+      <nav class="footer__nav" aria-label="Legal">
+        {footer.legal.map((l: { href: string; label: string }) => <a class="footer__link" href={l.href}>{l.label}</a>)}
+        <a class="footer__link" href={homeHref + '#top'}>{footer.backToTop} ↑</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <span class="mono footer__meta">{footer.copyright}</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #000;
+    padding-block: clamp(2.5rem, 6vw, 4rem) 2rem;
+  }
+
+  .footer__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--hairline-on-dark);
+  }
+
+  .footer__wordmark {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.8rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .footer__tagline {
+    color: var(--soft-on-dark);
+    font-size: var(--text-small);
+    margin-top: 0.5rem;
+  }
+
+  .footer__nav {
+    display: flex;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+  }
+
+  .footer__link {
+    color: var(--soft-on-dark);
+    text-decoration: none;
+    font-size: var(--text-small);
+    transition: color var(--dur-fast) var(--ease);
+  }
+
+  .footer__link:hover {
+    color: var(--blue-on-dark);
+  }
+
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 1.6rem;
+  }
+
+  .footer__meta {
+    color: var(--soft-on-dark);
+    font-size: 0.6875rem;
+  }
+</style>
