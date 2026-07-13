@@ -102,18 +102,20 @@ const { nav } = t
     position: fixed;
     inset: 0 0 auto 0;
     z-index: 50;
-    padding: 0.9rem clamp(1rem, 6vw, 5.5rem) 0;
+    padding: 0.9rem 0 0;
     color: var(--ink);
     pointer-events: none;
   }
 
+  /* Same metrics as .container so the nav edges align with the content */
   .nav__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    max-width: 84rem;
+    max-width: var(--container);
     margin-inline: auto;
+    padding-inline: var(--gutter);
   }
 
   .nav__pill {
@@ -243,8 +245,8 @@ const { nav } = t
     .nav__menu {
       position: absolute;
       top: 3.9rem;
-      left: clamp(0.75rem, 2vw, 1.5rem);
-      right: clamp(0.75rem, 2vw, 1.5rem);
+      left: var(--gutter);
+      right: var(--gutter);
       margin: 0;
       flex-direction: column;
       align-items: stretch;
